@@ -1290,25 +1290,28 @@
             <div class="wf-btn">확인</div>
             <!-- 개선된 추천 건물 팝업 -->
             <div style="position:absolute; left:0; right:0; bottom:0; top:0; background:rgba(0,0,0,0.35); border-radius:16px; display:flex; align-items:flex-end; justify-content:center; padding-bottom:52px;">
-              <div style="background:#fff; border-radius:12px; width:182px; box-shadow:0 8px 24px rgba(0,0,0,0.22); overflow:hidden; position:relative;">
-                <span class="wf-num-label" style="top:-10px; right:-10px;">④</span>
-                <!-- 팝업 헤더 -->
-                <div style="background:var(--brand-lt); padding:8px 10px 6px; border-bottom:1px solid var(--gray-lt);">
-                  <div style="font-size:8.5px; font-weight:700; color:var(--brand);">📍 가까운 건물을 찾았어요!</div>
-                  <div style="font-size:7.5px; color:var(--gray-dk); margin-top:2px;">기본 건물이 현위치와 멀어요</div>
-                </div>
-                <!-- 건물 정보 -->
-                <div style="padding:8px 10px 6px;">
-                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:3px;">
-                    <div style="font-size:9.5px; font-weight:700; color:var(--navy);">D&amp;O 강서사옥</div>
-                    <div style="font-size:8px; font-weight:700; color:var(--brand);">423m</div>
+              <!-- ④ 배지: overflow:hidden 바깥에 위치 -->
+              <div style="position:relative;">
+                <span class="wf-num-label" style="top:-10px; right:-10px; z-index:10;">④</span>
+                <div style="background:#fff; border-radius:12px; width:182px; box-shadow:0 8px 24px rgba(0,0,0,0.22); overflow:hidden;">
+                  <!-- 팝업 헤더 -->
+                  <div style="background:var(--brand-lt); padding:8px 10px 6px; border-bottom:1px solid var(--gray-lt);">
+                    <div style="font-size:8.5px; font-weight:700; color:var(--brand);">📍 가까운 건물을 찾았어요!</div>
+                    <div style="font-size:7.5px; color:var(--gray-dk); margin-top:2px;">기본 건물이 현위치와 멀어요</div>
                   </div>
-                  <div style="font-size:7.5px; color:var(--gray-md);">📍 서울 강서구 마곡동 812</div>
-                  <div style="height:1px; background:var(--gray-lt); margin:7px 0;"></div>
-                  <!-- 버튼 -->
-                  <div style="display:flex; gap:5px;">
-                    <div style="flex:1; text-align:center; padding:5px 4px; border:1px solid var(--gray-lt); border-radius:6px; font-size:8px; color:var(--gray-dk); cursor:pointer;">취소</div>
-                    <div style="flex:2; text-align:center; padding:5px 4px; background:var(--brand); border-radius:6px; font-size:8px; color:#fff; font-weight:700; cursor:pointer;">D&amp;O 강서사옥으로 변경</div>
+                  <!-- 건물 정보 -->
+                  <div style="padding:8px 10px 6px;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:3px;">
+                      <div style="font-size:9.5px; font-weight:700; color:var(--navy);">D&amp;O 강서사옥</div>
+                      <div style="font-size:8px; font-weight:700; color:var(--brand);">423m</div>
+                    </div>
+                    <div style="font-size:7.5px; color:var(--gray-md);">📍 서울 강서구 마곡동 812</div>
+                    <div style="height:1px; background:var(--gray-lt); margin:7px 0;"></div>
+                    <!-- 버튼: AS-IS(단일 CTA) → TO-BE(취소/변경 분리) -->
+                    <div style="display:flex; gap:5px;">
+                      <div style="flex:1; text-align:center; padding:5px 4px; border:1px solid var(--gray-lt); border-radius:6px; font-size:8px; color:var(--gray-dk);">취소</div>
+                      <div style="flex:1.5; text-align:center; padding:5px 4px; background:var(--brand); border-radius:6px; font-size:8px; color:#fff; font-weight:700;">변경하기</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1363,9 +1366,9 @@
             </tr>
             <tr>
               <td>4</td>
-              <td class="item-name">추천 건물 팝업 레이블</td>
-              <td class="asis">"이 건물로 변경할게요" — 모호한 버튼 텍스트</td>
-              <td class="tobe">"D&amp;O 강서사옥으로 변경" 처럼 건물명 포함 레이블</td>
+              <td class="item-name">추천 건물 팝업 구조</td>
+              <td class="asis">단일 CTA 버튼 "이 건물로 변경할게요" — 취소 불가</td>
+              <td class="tobe">취소 / 변경하기 버튼 분리 + 건물명·거리·주소 정보 노출</td>
               <td><span class="badge badge-p2">P2</span></td>
             </tr>
           </tbody>
