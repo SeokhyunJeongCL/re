@@ -1530,19 +1530,25 @@
           <div class="step-bar-track"><div class="step-bar-fill" style="width:66%"></div></div>
           <div class="step-labels"><span>장소</span><span style="color:var(--brand); font-weight:700;">카테고리</span><span>상세</span></div>
         </div>
-        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">5건</div></div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">4건</div></div>
       </div>
 
       <div class="mockup-zone" style="width:460px;">
-        <div class="mockup-block">
+        <div class="mockup-block" style="position:relative;">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="./불편신고/UFMDS01830U.png" alt="UFMDS01830U AS-IS">
+          <img class="mockup-img" src="./불편신고/UFMDS01830U-1.png" alt="UFMDS01830U AS-IS">
+          <!-- 삭제 예정 오버레이 -->
+          <div style="position:absolute; bottom:76px; left:12px; right:12px; pointer-events:none;">
+            <div style="border:2px dashed #B71C1C; border-radius:6px; padding:3px 6px; display:flex; align-items:center; justify-content:center; gap:5px; background:rgba(183,28,28,0.08);">
+              <span style="font-size:7.5px; font-weight:700; color:#B71C1C;">③ 삭제 예정 — "찾는 키워드가 없나요?" 패널</span>
+            </div>
+          </div>
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">TO-BE (개선안)</div>
           <div class="wireframe" style="width:210px;">
             <div class="wf-header">← 접수하기</div>
-            <div class="wf-progress" style="position:relative;"><div class="wf-progress-fill" style="width:66%"></div><span class="wf-num-label" style="top:auto; bottom:-10px; right:2px; background:var(--blue);">⑤</span></div>
+            <div class="wf-progress" style="position:relative;"><div class="wf-progress-fill" style="width:66%"></div><span class="wf-num-label" style="top:auto; bottom:-10px; right:2px; background:var(--blue);">④</span></div>
             <div class="wf-body">
               <div class="wf-title">무엇을<br>도와드릴까요?</div>
               <div class="wf-input">키워드를 검색해보세요 🔍</div>
@@ -1555,19 +1561,15 @@
                 <div class="wf-chip">통근버스 이용 불만</div>
                 <div class="wf-chip">변기가 막혔어요</div>
                 <div class="wf-chip">더러워요 치워주세요</div>
-                <div class="wf-chip highlight">설비 고장 신고</div>
+                <div class="wf-chip">칭찬해요</div>
+                <div class="wf-chip">화장실 소모품</div>
                 <div class="wf-chip">온도 조절해주세요</div>
-              </div>
-              <div style="font-size:7.5px; color:var(--gray-md); font-style:italic;">↑ '칭찬해요' 태그는 별도 진입점으로 분리 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">④</span></div>
-              <div style="background:#1A1A2E; border-radius:6px; padding:6px; margin-top:auto;">
-                <div style="font-size:8px; color:rgba(255,255,255,0.7); margin-bottom:5px; text-align:center;">찾는 키워드가 없나요? <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">③</span></div>
-                <div style="display:flex; gap:3px;">
-                  <div style="flex:1; background:rgba(255,255,255,0.1); border-radius:4px; padding:4px; text-align:center; font-size:7.5px; color:#fff; font-weight:700;">기타 문의</div>
-                  <div style="flex:1; background:rgba(255,255,255,0.1); border-radius:4px; padding:4px; text-align:center; font-size:7.5px; color:#fff; font-weight:700;">FAQ</div>
-                  <div style="flex:1; background:rgba(255,255,255,0.1); border-radius:4px; padding:4px; text-align:center; font-size:7.5px; color:#fff; font-weight:700;">콜센터</div>
-                </div>
+                <div class="wf-chip">방역해주세요</div>
+                <div class="wf-chip">조명이 이상해요</div>
+                <div class="wf-chip">에어컨이 고장났어요</div>
               </div>
             </div>
+            <div class="wf-btn" style="background:var(--gray-lt); color:var(--gray-md);">카테고리 전체 보기</div>
           </div>
         </div>
       </div>
@@ -1577,9 +1579,9 @@
         <div class="spec-asis">
           <div class="spec-asis-title">현황 (AS-IS)</div>
           <ul>
-            <li>키워드 태그 칩 불규칙 래핑 배치 / "칭찬해요" 혼재</li>
+            <li>키워드 태그 칩 불규칙 래핑 배치</li>
             <li>카테고리 전체 보기 버튼이 스크롤 하단에만 위치</li>
-            <li>검색 결과 없음 화면: 기타 문의·FAQ만 노출 (콜센터 연결 없음)</li>
+            <li>하단 "찾는 키워드가 없나요?" 패널 항시 고정 노출 (기타 문의·FAQ·콜센터)</li>
           </ul>
         </div>
         <table class="spec-table">
@@ -1603,20 +1605,13 @@
             </tr>
             <tr>
               <td>3</td>
-              <td class="item-name">검색 결과 없음 화면 일관성</td>
-              <td class="asis">기타 문의·FAQ만 노출 (콜센터 연결 누락)</td>
-              <td class="tobe">기타 문의 / FAQ / 콜센터 연결 3개 옵션 모두 일관 노출</td>
+              <td class="item-name">"찾는 키워드가 없나요?" 패널</td>
+              <td class="asis">하단 고정 패널로 기타 문의·FAQ·콜센터 연결 노출</td>
+              <td class="tobe" style="color:#B71C1C; font-weight:600;">삭제 예정 — 카테고리 전체 보기(②)로 탐색 유도로 대체</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
               <td>4</td>
-              <td class="item-name">"칭찬해요" 태그 혼재</td>
-              <td class="asis">불편신고 플로우 내 칭찬 항목 노출</td>
-              <td class="tobe">칭찬/건의 카테고리는 별도 진입점 분리 또는 시각적 구분</td>
-              <td><span class="badge badge-p2">P2</span></td>
-            </tr>
-            <tr>
-              <td>5</td>
               <td class="item-name">진행 표시바 비율</td>
               <td class="asis">Step 2 진행바 비율 불명확</td>
               <td class="tobe">3단계 기준 정확히 2/3(66%) 지점으로 표시</td>
@@ -1630,6 +1625,149 @@
   <div class="slide-footer">
     <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01830U</b> <span class="sep">›</span> 카테고리 선택</div>
     <div class="footer-right">SD2026-002 · P.6</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 7: UFMDS01830U 카테고리 전체 보기
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01830U-all">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span>
+      <span class="sep">›</span>
+      <b>UFMDS01830U</b>
+      <span class="sep">›</span>
+      <span>카테고리 전체 보기</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item"><div class="nav-num">1</div><div class="nav-text"><span class="nav-id">UFMDS01810U</span><span class="nav-name">장소 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">2</div><div class="nav-text"><span class="nav-id">UFMDS01820U</span><span class="nav-name">건물 선택 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item active"><div class="nav-num">3</div><div class="nav-text"><span class="nav-id">UFMDS01830U</span><span class="nav-name">카테고리 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">4</div><div class="nav-text"><span class="nav-id">UFMDS01840U</span><span class="nav-name">상세 정보 입력</span></div></div>
+      <div class="nav-item"><div class="nav-num">5</div><div class="nav-text"><span class="nav-id">UFMDS01850U</span><span class="nav-name">이미지 첨부 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">6</div><div class="nav-text"><span class="nav-id">UFMDS01880U</span><span class="nav-name">접수 확인</span></div></div>
+      <div class="nav-item"><div class="nav-num">7</div><div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div></div>
+    </div>
+
+    <div class="slide-main">
+      <div class="screen-meta">
+        <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01830U</div></div>
+        <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">카테고리 전체 보기</div></div>
+        <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-bs">Overlay</span></div></div>
+        <div class="meta-row"><div class="meta-label">진입 조건</div><div class="meta-value" style="font-size:10px;">카테고리 선택 화면 "카테고리 전체 보기 ›" 탭</div></div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">3건</div></div>
+      </div>
+
+      <div class="mockup-zone" style="width:590px; gap:7px;">
+        <!-- AS-IS ① Bottom Sheet 방식 -->
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS ① BS 방식</div>
+          <img class="mockup-img" style="height:390px;" src="./불편신고/UFMDS01830U-3.png" alt="카테고리 전체 BS 방식">
+        </div>
+        <!-- AS-IS ② Full Screen 방식 -->
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS ② Full Screen</div>
+          <img class="mockup-img" style="height:390px;" src="./불편신고/Image (1).jpg" alt="카테고리 전체 Full Screen">
+        </div>
+        <!-- TO-BE wireframe -->
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE (개선안)</div>
+          <div class="wireframe" style="width:178px; position:relative;">
+            <div class="wf-header" style="display:flex; justify-content:space-between; align-items:center; padding:0 8px;">
+              <span style="font-size:8.5px;">← 카테고리 전체</span>
+              <span style="font-size:9px; color:var(--gray-md);">✕</span>
+            </div>
+            <div style="padding:4px 8px 2px;">
+              <div class="wf-input" style="position:relative; font-size:8px; margin-bottom:0;">카테고리 검색... 🔍 <span class="wf-num-label">③</span></div>
+            </div>
+            <div class="wf-body" style="padding:5px 8px 4px; gap:4px;">
+              <div class="wf-section">통근버스 민원</div>
+              <div class="wf-chip-grid" style="margin-bottom:3px;">
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">이용 문의</div>
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">이용 불만</div>
+              </div>
+              <div class="wf-section">출입/보안</div>
+              <div class="wf-chip-grid" style="margin-bottom:3px;">
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">출입 관련</div>
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">문 개폐</div>
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">보안 기타</div>
+              </div>
+              <div class="wf-section">설비 고장/수리/요청</div>
+              <div class="wf-chip-grid" style="margin-bottom:3px; position:relative;">
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">문이 고장났어요</div>
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">전기 문제</div>
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">조명 이상</div>
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">에어컨 고장</div>
+                <span class="wf-num-label" style="top:-10px; right:-8px;">②</span>
+              </div>
+              <div class="wf-section">청소/방역</div>
+              <div class="wf-chip-grid" style="margin-bottom:3px;">
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">더러워요</div>
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">쓰레기통</div>
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">방역 문의</div>
+              </div>
+              <div class="wf-section">기타</div>
+              <div class="wf-chip-grid">
+                <div class="wf-chip" style="font-size:7px; padding:3px 4px;">기타 문의</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01830U — 카테고리 전체 보기 개선안</div>
+        <div class="spec-asis">
+          <div class="spec-asis-title">현황 (AS-IS)</div>
+          <ul>
+            <li>두 가지 상이한 표시 방식 혼재: Bottom Sheet(UFMDS01830U-3) vs Full Screen(Image 1)</li>
+            <li>칩 자유 배치 — 가로 공간에 따라 불규칙 래핑, 카테고리 선택 화면(6p)과 레이아웃 불일치</li>
+            <li>전체 보기 진입 후 별도 검색 불가, 상위 화면 검색어 연동 없음</li>
+            <li>"위험신고" 등 서비스 성격이 다른 항목 동일 목록에 혼재</li>
+          </ul>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr><th>#</th><th>항목</th><th>현황</th><th>개선 방향</th><th>우선순위</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">표시 방식 통일</td>
+              <td class="asis">Bottom Sheet vs Full Screen 두 방식 혼재 — 일관성 없음</td>
+              <td class="tobe">Full Screen으로 통일 (카테고리 수 多, 충분한 스크롤 영역 확보 필요)</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="item-name">칩 레이아웃</td>
+              <td class="asis">카테고리마다 칩 크기·줄수 불규칙 자유 배치</td>
+              <td class="tobe">2열 그리드로 통일, 카테고리 선택 화면(UFMDS01830U)과 동일 레이아웃 일관 적용</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="item-name">검색 연동</td>
+              <td class="asis">전체 보기 진입 후 별도 검색 불가 — 상위 화면 검색어 연동 없음</td>
+              <td class="tobe">상단 검색창 유지, 상위 화면 검색어 자동 채움 또는 독립 검색 제공</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01830U</b> <span class="sep">›</span> 카테고리 전체 보기</div>
+    <div class="footer-right">SD2026-002 · P.7</div>
   </div>
 </div>
 
@@ -1779,13 +1917,13 @@
   </div>
   <div class="slide-footer">
     <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01840U</b> <span class="sep">›</span> 상세 정보 입력</div>
-    <div class="footer-right">SD2026-002 · P.7</div>
+    <div class="footer-right">SD2026-002 · P.8</div>
   </div>
 </div>
 
 
 <!-- ══════════════════════════════════════
-     SLIDE 8: UFMDS01850U 이미지 첨부 BS
+     SLIDE 9: UFMDS01850U 이미지 첨부 BS
 ══════════════════════════════════════ -->
 <div class="slide" id="slide-UFMDS01850U">
   <div class="slide-header">
