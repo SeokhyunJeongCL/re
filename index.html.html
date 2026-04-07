@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANDI APP FO — 불편신고 화면정의서 (개선안)</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+  :root {
+    --navy:    #1A1A2E;
+    --blue:    #3A5A9A;
+    --blue-lt: #5A7AB8;
+    --gray-dk: #333333;
+    --gray-md: #666666;
+    --gray-lt: #DCDEE0;
+    --gray-bg: #F4F5F7;
+    --white:   #FFFFFF;
+    --brand:   #E91E8C;
+    --brand-lt:#FDECF5;
+    --yellow:  #F5C842;
+    --green:   #22A34B;
+    --red:     #E53935;
+    --slide-w: 1280px;
+    --slide-h: 720px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: #2B2B2B;
+    color: var(--gray-dk);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* ── Slide wrapper ── */
+  .slide {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    margin: 24px auto;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* ══════════════════════════════════════
+     COVER PAGE
+  ══════════════════════════════════════ */
+  .slide-cover {
+    background: var(--navy);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 72px 96px;
+  }
+  .cover-badge {
+    background: var(--brand);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    display: inline-block;
+  }
+  .cover-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .cover-sub {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 48px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 48px;
+  }
+  .cover-meta-item label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cover-meta-item span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+  .cover-deco {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 340px;
+    background: linear-gradient(135deg, rgba(58,90,154,0.3) 0%, rgba(233,30,140,0.15) 100%);
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .cover-logo {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.08);
+    letter-spacing: -2px;
+  }
+
+  /* ══════════════════════════════════════
+     REVISION TABLE SLIDE
+  ══════════════════════════════════════ */
+  .slide-rev {
+    flex-direction: column;
+  }
+
+  /* ══════════════════════════════════════
+     COMMON SLIDE HEADER
+  ══════════════════════════════════════ */
+  .slide-header {
+    height: 44px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    flex-shrink: 0;
+    gap: 6px;
+  }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+  }
+  .breadcrumb span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+  .breadcrumb b {
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+  }
+  .breadcrumb .sep { color: rgba(255,255,255,0.3); }
+  .slide-id {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+  }
+
+  /* ══════════════════════════════════════
+     CONTENT SLIDE BODY
+  ══════════════════════════════════════ */
+  .slide-body {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* Left Nav */
+  .slide-nav {
+    width: 186px;
+    background: #0F1420;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    overflow: hidden;
+  }
+  .nav-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0 16px 8px;
+  }
+  .nav-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .nav-item:hover, .nav-item.active {
+    background: rgba(58,90,154,0.35);
+  }
+  .nav-item.active { border-left: 3px solid var(--brand); padding-left: 13px; }
+  .nav-num {
+    width: 24px; height: 24px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .nav-item.active .nav-num { background: var(--brand); color: #fff; }
+  .nav-text { flex: 1; }
+  .nav-id {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    display: block;
+    font-family: 'Courier New', monospace;
+  }
+  .nav-name {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+  .nav-item.active .nav-name { color: #fff; }
+  .nav-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 6px 0;
+  }
+
+  /* ══════════════════════════════════════
+     MAIN CONTENT AREA
+  ══════════════════════════════════════ */
+  .slide-main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* Screen meta panel */
+  .screen-meta {
+    width: 160px;
+    background: var(--gray-bg);
+    border-right: 1px solid var(--gray-lt);
+    flex-shrink: 0;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .meta-row { display: flex; flex-direction: column; gap: 2px; }
+  .meta-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-md);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .meta-value {
+    font-size: 13px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .meta-value.code {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--blue);
+  }
+  .meta-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .tag-step { background: var(--brand); color: #fff; }
+  .tag-bs   { background: #EEF2FA; color: var(--blue); }
+  .tag-full { background: #E8F5E9; color: var(--green); }
+
+  /* Step progress */
+  .step-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .step-bar-track {
+    height: 3px;
+    background: var(--gray-lt);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .step-bar-fill {
+    height: 100%;
+    background: var(--brand);
+    border-radius: 2px;
+  }
+  .step-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--gray-md);
+  }
+
+  /* Wireframe + spec area */
+  .screen-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* Mockup area */
+  .mockup-zone {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 10px;
+    border-right: 1px solid var(--gray-lt);
+    flex-shrink: 0;
+  }
+  .mockup-block { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .mockup-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--gray-md);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    background: var(--gray-lt);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .mockup-label.tobe { background: var(--brand); color: #fff; }
+  .mockup-img {
+    height: 490px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border: 1.5px solid var(--gray-lt);
+    display: block;
+  }
+
+  /* TO-BE wireframe */
+  .wireframe {
+    width: 220px;
+    height: 490px;
+    border: 1.5px dashed #BBBBBB;
+    border-radius: 16px;
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: 9px;
+  }
+  .wf-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 8px 10px;
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .wf-progress {
+    height: 3px;
+    background: var(--gray-lt);
+    flex-shrink: 0;
+  }
+  .wf-progress-fill {
+    height: 100%;
+    background: var(--brand);
+  }
+  .wf-body {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+  }
+  .wf-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .wf-sub { font-size: 8.5px; color: var(--gray-md); }
+  .wf-divider { height: 1px; background: var(--gray-lt); }
+  .wf-input {
+    border: 1px solid var(--gray-lt);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 8.5px;
+    color: var(--gray-md);
+    background: var(--gray-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wf-input.active { border-color: var(--brand); background: var(--brand-lt); color: var(--navy); font-weight: 600; }
+  .wf-input.disabled { opacity: 0.4; }
+  .wf-chip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .wf-chip {
+    border: 1px solid var(--gray-lt);
+    border-radius: 12px;
+    padding: 3px 6px;
+    font-size: 8px;
+    text-align: center;
+    color: var(--gray-dk);
+    background: var(--white);
+  }
+  .wf-chip.highlight { background: var(--brand-lt); border-color: var(--brand); color: var(--brand); font-weight: 700; }
+  .wf-section { font-size: 8px; font-weight: 700; color: var(--navy); }
+  .wf-row { display: flex; gap: 4px; }
+  .wf-tab {
+    flex: 1;
+    border: 1px solid var(--gray-lt);
+    border-radius: 4px;
+    padding: 4px;
+    text-align: center;
+    font-size: 8px;
+    color: var(--gray-md);
+  }
+  .wf-tab.sel { background: var(--brand); color: #fff; border-color: var(--brand); font-weight: 700; }
+  .wf-textarea {
+    border: 1px solid var(--gray-lt);
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 8px;
+    color: var(--gray-md);
+    min-height: 50px;
+    background: var(--gray-bg);
+    position: relative;
+  }
+  .wf-char-count {
+    position: absolute;
+    bottom: 4px; right: 6px;
+    font-size: 7.5px;
+    color: var(--gray-md);
+  }
+  .wf-img-upload {
+    border: 1.5px dashed var(--gray-lt);
+    border-radius: 6px;
+    padding: 8px;
+    text-align: center;
+    font-size: 8px;
+    color: var(--gray-md);
+    background: var(--gray-bg);
+  }
+  .wf-img-row {
+    display: flex;
+    gap: 4px;
+  }
+  .wf-img-thumb {
+    width: 30px; height: 30px;
+    border-radius: 4px;
+    background: var(--gray-lt);
+    border: 1px solid #ccc;
+    font-size: 7px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gray-md);
+  }
+  .wf-img-add {
+    width: 30px; height: 30px;
+    border-radius: 4px;
+    border: 1.5px dashed var(--brand);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    color: var(--brand);
+    cursor: pointer;
+  }
+  .wf-btn {
+    background: var(--brand);
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+  .wf-btn.disabled { background: var(--gray-lt); color: var(--gray-md); }
+  .wf-location-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 8px;
+    color: var(--blue);
+    padding: 2px 0;
+  }
+  .wf-summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--gray-lt);
+    font-size: 8px;
+  }
+  .wf-summary-label { color: var(--gray-md); }
+  .wf-summary-value { color: var(--navy); font-weight: 600; }
+  .wf-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 7.5px;
+    font-weight: 700;
+    background: var(--brand-lt);
+    color: var(--brand);
+  }
+  .wf-receipt-no {
+    background: #FFF8E1;
+    border: 1px solid var(--yellow);
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: #7B6000;
+  }
+  .wf-info-box {
+    background: var(--gray-bg);
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 8px;
+    color: var(--gray-md);
+    border-left: 2px solid var(--brand);
+  }
+  .wf-footer-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+    margin-top: auto;
+  }
+  .wf-btn-outline {
+    flex: 1;
+    border: 1.5px solid var(--gray-lt);
+    border-radius: 8px;
+    padding: 6px;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--gray-dk);
+  }
+  .wf-btn-primary {
+    flex: 2;
+    background: var(--brand);
+    border-radius: 8px;
+    padding: 6px;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .wf-near-item {
+    background: var(--white);
+    border: 1px solid var(--gray-lt);
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 8px;
+  }
+  .wf-recent-label {
+    font-size: 8px; font-weight: 700; color: var(--navy); margin-bottom: 4px;
+  }
+  .wf-recent-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 0;
+    font-size: 8px;
+    color: var(--gray-dk);
+    border-bottom: 1px solid var(--gray-lt);
+  }
+  .wf-annotation {
+    position: absolute;
+    background: #FFF9C4;
+    border: 1px solid var(--yellow);
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 8px;
+    font-weight: 600;
+    color: #555;
+    pointer-events: none;
+  }
+
+  /* Spec table area */
+  .spec-zone {
+    flex: 1;
+    padding: 12px 14px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .spec-screen-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    border-left: 3px solid var(--brand);
+    padding-left: 8px;
+    line-height: 1.3;
+  }
+  .spec-asis {
+    background: var(--gray-bg);
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+  .spec-asis-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-md);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .spec-asis ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .spec-asis ul li {
+    font-size: 12px;
+    color: var(--gray-dk);
+    padding-left: 10px;
+    position: relative;
+  }
+  .spec-asis ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--gray-md);
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .spec-table thead tr {
+    background: var(--navy);
+    color: #fff;
+  }
+  .spec-table thead th {
+    padding: 6px 8px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .spec-table th:first-child { width: 22px; border-radius: 0; }
+  .spec-table tbody tr:nth-child(even) { background: var(--gray-bg); }
+  .spec-table tbody tr:hover { background: #EEF2FA; }
+  .spec-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--gray-lt);
+    vertical-align: top;
+    color: var(--gray-dk);
+    line-height: 1.45;
+  }
+  .spec-table td:first-child {
+    text-align: center;
+    font-weight: 700;
+    color: var(--blue);
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .spec-table td.item-name { font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .spec-table td.asis { color: var(--gray-md); }
+  .spec-table td.tobe { color: var(--navy); }
+
+  /* Priority badges */
+  .badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .badge-p1 { background: #FFEBEE; color: #C62828; }
+  .badge-p2 { background: #FFF8E1; color: #F57F17; }
+  .badge-p3 { background: #E8F5E9; color: #2E7D32; }
+
+  /* ══════════════════════════════════════
+     FLOW SLIDE
+  ══════════════════════════════════════ */
+  .flow-container {
+    flex: 1;
+    padding: 28px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .flow-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .flow-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 140px;
+  }
+  .flow-box {
+    width: 130px;
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 10px 8px;
+    text-align: center;
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .flow-box.active { border-color: var(--brand); background: var(--brand-lt); }
+  .flow-box.bs     { border-color: var(--gray-lt); background: var(--gray-bg); }
+  .flow-id {
+    font-size: 9px;
+    font-family: 'Courier New', monospace;
+    color: var(--blue);
+    margin-bottom: 3px;
+    display: block;
+  }
+  .flow-box.active .flow-id { color: var(--brand); }
+  .flow-box.bs .flow-id { color: var(--gray-md); }
+  .flow-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .flow-box.bs .flow-name { color: var(--gray-md); }
+  .flow-arrow {
+    font-size: 18px;
+    color: var(--gray-lt);
+    margin: 0 2px;
+    flex-shrink: 0;
+    margin-bottom: 16px;
+  }
+  .flow-label {
+    font-size: 11px;
+    color: var(--gray-md);
+    text-align: center;
+  }
+  .flow-legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 4px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--gray-md);
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ══════════════════════════════════════
+     REV TABLE SLIDE
+  ══════════════════════════════════════ */
+  .rev-container {
+    flex: 1;
+    padding: 28px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .rev-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .rev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .rev-table thead tr { background: var(--navy); color: #fff; }
+  .rev-table thead th {
+    padding: 8px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .rev-table tbody tr:nth-child(even) { background: var(--gray-bg); }
+  .rev-table tbody td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--gray-lt);
+    color: var(--gray-dk);
+  }
+  .rev-table tbody td:first-child { font-weight: 700; color: var(--blue); }
+
+  /* ══════════════════════════════════════
+     COMMON SLIDE FOOTER
+  ══════════════════════════════════════ */
+  .slide-footer {
+    height: 28px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .footer-crumb {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-crumb b { color: rgba(255,255,255,0.75); }
+  .footer-crumb .sep { margin: 0 4px; }
+  .footer-right {
+    margin-left: auto;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ══════════════════════════════════════
+     COMMON SECTION
+  ══════════════════════════════════════ */
+  .slide-common {
+    height: auto;
+  }
+  .common-body {
+    flex: 1;
+    padding: 20px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .common-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    border-left: 3px solid var(--brand);
+    padding-left: 10px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .slide { margin: 0; box-shadow: none; page-break-after: always; }
+  }
+
+  /* TO-BE 항목 번호 뱃지 */
+  .wf-item-num {
+    display: inline-flex;
+    width: 20px; height: 20px;
+    background: var(--brand);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    vertical-align: middle;
+    margin-right: 2px;
+  }
+  .wf-num-label {
+    position: absolute;
+    top: 2px; right: 2px;
+    background: var(--brand);
+    color: #fff;
+    border-radius: 50%;
+    width: 28px; height: 28px;
+    font-size: 17px;
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .wf-overlay-dialog {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    z-index: 10;
+  }
+  .wf-dialog-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px 14px 12px;
+    width: 160px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    text-align: center;
+  }
+  .wf-dialog-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .wf-dialog-desc {
+    font-size: 8.5px;
+    color: var(--gray-md);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .wf-dialog-btns {
+    display: flex;
+    gap: 6px;
+  }
+  .wf-dialog-btn-cancel {
+    flex: 1;
+    border: 1.5px solid var(--gray-lt);
+    border-radius: 8px;
+    padding: 6px 4px;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--gray-dk);
+    text-align: center;
+  }
+  .wf-dialog-btn-confirm {
+    flex: 1;
+    background: var(--brand);
+    border-radius: 8px;
+    padding: 6px 4px;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     SLIDE 1: COVER
+══════════════════════════════════════ -->
+<div class="slide slide-cover" id="slide-cover">
+  <div class="cover-deco"></div>
+  <div class="cover-logo">SANDI</div>
+  <div class="cover-badge">FO · 화면정의서 (개선안)</div>
+  <div class="cover-title">불편신고<br>화면정의서</div>
+  <div class="cover-sub">파인센터 불편신고 접수 UX 개선안</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>문서번호</label>
+      <span>SD2026-002</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>버전</label>
+      <span>V1.0</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>작성일</label>
+      <span>2026-04-06</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>서비스</label>
+      <span>SANDI APP / FO / 불편신고</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 2: REVISION HISTORY
+══════════════════════════════════════ -->
+<div class="slide" id="slide-rev">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <b>불편신고</b>
+      <span class="sep">›</span>
+      <span>개정 이력</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body" style="display:block;">
+    <div class="rev-container">
+      <div class="rev-title">개정 이력</div>
+      <table class="rev-table">
+        <thead>
+          <tr>
+            <th>Ver</th>
+            <th>일자</th>
+            <th>작성자</th>
+            <th>변경 내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>V1.0</td>
+            <td>2026-04-06</td>
+            <td>기획팀</td>
+            <td>불편신고 UX 개선안 최초 작성 (UFMDS01810U ~ UFMDS01890U)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 16px;">
+        <div class="rev-title" style="font-size:15px; margin-bottom: 12px;">개선 대상 화면 목록</div>
+        <table class="rev-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>화면 ID</th>
+              <th>화면명</th>
+              <th>유형</th>
+              <th>개선 항목 수</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>UFMDS01810U</td><td>장소 선택</td><td>Step 1/3</td><td>4건</td></tr>
+            <tr><td>2</td><td>UFMDS01820U</td><td>건물 선택 Bottom Sheet</td><td>Bottom Sheet</td><td>3건</td></tr>
+            <tr><td>3</td><td>UFMDS01830U</td><td>카테고리/키워드 선택</td><td>Step 2/3</td><td>5건</td></tr>
+            <tr><td>4</td><td>UFMDS01840U</td><td>상세 정보 입력</td><td>Step 3/3</td><td>6건</td></tr>
+            <tr><td>5</td><td>UFMDS01850U</td><td>이미지 첨부</td><td>Bottom Sheet</td><td>2건</td></tr>
+            <tr><td>6</td><td>UFMDS01880U</td><td>접수 확인</td><td>Bottom Sheet</td><td>4건</td></tr>
+            <tr><td>7</td><td>UFMDS01890U</td><td>접수 완료</td><td>완료 화면</td><td>5건</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>개정 이력</b></div>
+    <div class="footer-right">SD2026-002 · P.2</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 3: SCREEN FLOW
+══════════════════════════════════════ -->
+<div class="slide" id="slide-flow">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <b>불편신고</b>
+      <span class="sep">›</span>
+      <span>전체 플로우</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body" style="display:block;">
+    <div class="flow-container">
+      <div class="flow-title">불편신고 접수 플로우</div>
+      <div class="flow-row">
+        <div class="flow-node">
+          <div class="flow-box active">
+            <span class="flow-id">UFMDS01810U</span>
+            <div class="flow-name">장소 선택</div>
+          </div>
+          <div class="flow-label">Step 1/3</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="flow-box bs">
+            <span class="flow-id">UFMDS01820U</span>
+            <div class="flow-name">건물 선택<br>Bottom Sheet</div>
+          </div>
+          <div class="flow-label">건물 검색 시</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="flow-box active">
+            <span class="flow-id">UFMDS01830U</span>
+            <div class="flow-name">카테고리 선택</div>
+          </div>
+          <div class="flow-label">Step 2/3</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="flow-box active">
+            <span class="flow-id">UFMDS01840U</span>
+            <div class="flow-name">상세 정보 입력</div>
+          </div>
+          <div class="flow-label">Step 3/3</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="flow-box bs">
+            <span class="flow-id">UFMDS01850U</span>
+            <div class="flow-name">이미지 첨부<br>Bottom Sheet</div>
+          </div>
+          <div class="flow-label">사진 첨부 시</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="flow-box bs">
+            <span class="flow-id">UFMDS01880U</span>
+            <div class="flow-name">접수 확인<br>Bottom Sheet</div>
+          </div>
+          <div class="flow-label">최종 확인</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="flow-box active">
+            <span class="flow-id">UFMDS01890U</span>
+            <div class="flow-name">접수 완료</div>
+          </div>
+          <div class="flow-label">완료 화면</div>
+        </div>
+      </div>
+
+      <div class="flow-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--brand); border: 2px solid var(--brand);"></div>
+          Full Screen (전체 화면)
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--gray-lt); border: 2px solid #ccc;"></div>
+          Bottom Sheet / Overlay
+        </div>
+      </div>
+
+      <div style="background: var(--gray-bg); border-radius: 8px; padding: 14px 18px; margin-top: 8px;">
+        <div style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:8px;">총괄 개선 방향</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size:11px; color:var(--gray-dk);">
+          <div>① 진행 표시바에 단계명 레이블 추가 (장소 → 카테고리 → 상세입력)</div>
+          <div>② 이전 단계 복귀 시 입력값 유지 명세 필요</div>
+          <div>③ 최근 사용 건물·층 기본값 자동 세팅으로 반복 입력 제거</div>
+          <div>④ 네트워크 오류 및 재시도 UX 화면 추가 정의 필요</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>전체 플로우</b></div>
+    <div class="footer-right">SD2026-002 · P.3</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 4: UFMDS01810U 장소 선택
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01810U">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span>
+      <span class="sep">›</span>
+      <b>UFMDS01810U</b>
+      <span class="sep">›</span>
+      <span>장소 선택</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <!-- Left Nav -->
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item active">
+        <div class="nav-num">1</div>
+        <div class="nav-text">
+          <span class="nav-id">UFMDS01810U</span>
+          <span class="nav-name">장소 선택</span>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-num">2</div>
+        <div class="nav-text">
+          <span class="nav-id">UFMDS01820U</span>
+          <span class="nav-name">건물 선택 BS</span>
+        </div>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-item">
+        <div class="nav-num">3</div>
+        <div class="nav-text">
+          <span class="nav-id">UFMDS01830U</span>
+          <span class="nav-name">카테고리 선택</span>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-num">4</div>
+        <div class="nav-text">
+          <span class="nav-id">UFMDS01840U</span>
+          <span class="nav-name">상세 정보 입력</span>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-num">5</div>
+        <div class="nav-text">
+          <span class="nav-id">UFMDS01850U</span>
+          <span class="nav-name">이미지 첨부 BS</span>
+        </div>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-item">
+        <div class="nav-num">6</div>
+        <div class="nav-text">
+          <span class="nav-id">UFMDS01880U</span>
+          <span class="nav-name">접수 확인</span>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-num">7</div>
+        <div class="nav-text">
+          <span class="nav-id">UFMDS01890U</span>
+          <span class="nav-name">접수 완료</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-main">
+      <!-- Screen Meta -->
+      <div class="screen-meta">
+        <div class="meta-row">
+          <div class="meta-label">화면 ID</div>
+          <div class="meta-value code">UFMDS01810U</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-label">화면명</div>
+          <div class="meta-value">장소 선택</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-label">유형</div>
+          <div class="meta-value"><span class="meta-tag tag-full">Full Screen</span></div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-label">단계</div>
+          <div class="meta-value"><span class="meta-tag tag-step">Step 1 / 3</span></div>
+        </div>
+        <div class="step-bar">
+          <div class="meta-label">진행률</div>
+          <div class="step-bar-track">
+            <div class="step-bar-fill" style="width:33%"></div>
+          </div>
+          <div class="step-labels">
+            <span style="color:var(--brand); font-weight:700;">장소</span>
+            <span>카테고리</span>
+            <span>상세</span>
+          </div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-label">개선 항목</div>
+          <div class="meta-value" style="color:var(--brand);">4건</div>
+        </div>
+      </div>
+
+      <!-- Mockup Zone -->
+      <div class="mockup-zone" style="width:460px;">
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS (현행)</div>
+          <img class="mockup-img" src="./불편신고/UFMDS01810U.png" alt="UFMDS01810U AS-IS">
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE (개선안)</div>
+          <div class="wireframe" style="width:210px;">
+            <div class="wf-header">← 접수하기</div>
+            <div class="wf-progress"><div class="wf-progress-fill" style="width:33%"></div></div>
+            <div class="wf-body" style="padding:10px 10px 6px;">
+              <div style="font-size:8.5px; color:var(--gray-md);">파인센터 불편 신고를 접수합니다</div>
+              <div class="wf-title">도움이 필요하신<br><b>장소</b>를 골라주세요</div>
+              <div class="wf-divider"></div>
+              <div style="display:flex; gap:4px; align-items:center;">
+                <div class="wf-input active" style="flex:1; position:relative;">D&amp;O 강서사옥 ✓ <span class="wf-num-label">②</span></div>
+                <div style="font-size:8px; color:var(--blue); white-space:nowrap;">현위치 📍</div>
+              </div>
+              <div class="wf-location-btn">📍 현위치로 자동 선택 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">③</span></div>
+              <div class="wf-input" style="position:relative;">
+                7F
+                <span>∨</span>
+                <span class="wf-num-label">①</span>
+              </div>
+              <div style="font-size:8px; color:var(--gray-md); font-style:italic;">↑ 건물 선택 후 활성화</div>
+            </div>
+            <div class="wf-btn">확인</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spec Zone -->
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01810U — 장소 선택 개선안</div>
+        <div class="spec-asis">
+          <div class="spec-asis-title">현황 (AS-IS)</div>
+          <ul>
+            <li>Step 1/3 진행 표시바 (단계명 레이블 없음)</li>
+            <li>건물 검색 입력 + 층 드롭다운 항상 노출</li>
+            <li>건물 미선택 시에도 층 드롭다운 활성화 상태</li>
+            <li>현위치 불일치 시 팝업으로만 추천</li>
+          </ul>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>항목</th>
+              <th>현황</th>
+              <th>개선 방향</th>
+              <th>우선순위</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">층 선택 활성화 시점</td>
+              <td class="asis">건물 미선택 시에도 층 드롭다운 노출·활성화</td>
+              <td class="tobe">건물 선택 완료 후 층 드롭다운 활성화 (Sequential UX)</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="item-name">기본값 자동 세팅</td>
+              <td class="asis">매번 건물·층 선택 필요</td>
+              <td class="tobe">최근 사용 건물·층을 기본값으로 세팅, 다를 경우만 수정</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="item-name">현위치 감지 진입점</td>
+              <td class="asis">팝업으로만 현위치 기반 건물 추천</td>
+              <td class="tobe">검색 필드 옆 "현위치로 자동 선택" 버튼 상시 노출</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="item-name">추천 건물 팝업 레이블</td>
+              <td class="asis">"이 건물로 변경할게요" — 모호한 버튼 텍스트</td>
+              <td class="tobe">"D&amp;O 강서사옥으로 변경" 처럼 건물명 포함 레이블</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01810U</b> <span class="sep">›</span> 장소 선택</div>
+    <div class="footer-right">SD2026-002 · P.4</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 5: UFMDS01820U 건물 선택 BS
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01820U">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span>
+      <span class="sep">›</span>
+      <b>UFMDS01820U</b>
+      <span class="sep">›</span>
+      <span>건물 선택 Bottom Sheet</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item"><div class="nav-num">1</div><div class="nav-text"><span class="nav-id">UFMDS01810U</span><span class="nav-name">장소 선택</span></div></div>
+      <div class="nav-item active"><div class="nav-num">2</div><div class="nav-text"><span class="nav-id">UFMDS01820U</span><span class="nav-name">건물 선택 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">3</div><div class="nav-text"><span class="nav-id">UFMDS01830U</span><span class="nav-name">카테고리 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">4</div><div class="nav-text"><span class="nav-id">UFMDS01840U</span><span class="nav-name">상세 정보 입력</span></div></div>
+      <div class="nav-item"><div class="nav-num">5</div><div class="nav-text"><span class="nav-id">UFMDS01850U</span><span class="nav-name">이미지 첨부 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">6</div><div class="nav-text"><span class="nav-id">UFMDS01880U</span><span class="nav-name">접수 확인</span></div></div>
+      <div class="nav-item"><div class="nav-num">7</div><div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div></div>
+    </div>
+
+    <div class="slide-main">
+      <div class="screen-meta">
+        <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01820U</div></div>
+        <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">건물 선택</div></div>
+        <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-bs">Bottom Sheet</span></div></div>
+        <div class="meta-row"><div class="meta-label">진입 조건</div><div class="meta-value" style="font-size:10px;">건물 검색 필드 탭 시</div></div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">3건</div></div>
+      </div>
+
+      <div class="mockup-zone" style="width:460px;">
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS (현행)</div>
+          <img class="mockup-img" src="./불편신고/UFMDS01820U.png" alt="UFMDS01820U AS-IS">
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE (개선안)</div>
+          <div class="wireframe" style="width:210px;">
+            <div class="wf-body" style="padding:0;">
+              <div style="background:rgba(0,0,0,0.4); flex:1; min-height:120px; display:flex; align-items:flex-end;">
+                <div style="background:#fff; border-radius:16px 16px 0 0; width:100%; padding:12px 12px 0;">
+                  <div style="font-size:12px; font-weight:700; text-align:center; margin-bottom:8px; color:var(--navy);">건물 선택</div>
+                  <div class="wf-input" style="margin-bottom:6px; position:relative;">건물명 또는 장소를 입력해주세요 🔍 <span class="wf-num-label">②</span></div>
+                  <div class="wf-location-btn" style="justify-content:center; margin-bottom:8px;">📍 현위치로 근처 건물 보기</div>
+                  <div style="font-size:8px; font-weight:700; color:var(--navy); margin-bottom:4px;">최근 방문 건물 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">③</span></div>
+                  <div class="wf-recent-item">🏢 D&amp;O 강서사옥 <span style="margin-left:auto; color:var(--gray-md);">23m</span></div>
+                  <div class="wf-recent-item">🏢 LGSP_E9동 <span style="margin-left:auto; color:var(--gray-md);">433m</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01820U — 건물 선택 Bottom Sheet 개선안</div>
+        <div class="spec-asis">
+          <div class="spec-asis-title">현황 (AS-IS)</div>
+          <ul>
+            <li>검색창 + "현위치로 근처 건물 보기" 링크</li>
+            <li>검색 결과: 건물명 + 거리 + 라디오 버튼</li>
+            <li>검색 결과 없음 / 최근 검색 미정의</li>
+          </ul>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr><th>#</th><th>항목</th><th>현황</th><th>개선 방향</th><th>우선순위</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">검색 결과 없음 처리</td>
+              <td class="asis">빈 화면 (미정의)</td>
+              <td class="tobe">검색 결과 없을 때 "검색 결과가 없습니다" 안내 메시지 표시 및 검색어 수정 유도 (직접 입력 유도 문구는 제거)</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="item-name">검색 트리거 방식</td>
+              <td class="asis">입력 후 동작 방식 불명확</td>
+              <td class="tobe">실시간 검색(debounce 300ms) 또는 명시적 검색 버튼 탭 방식 중 정책 결정 및 명세 추가</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="item-name">최근 방문 건물</td>
+              <td class="asis">없음</td>
+              <td class="tobe">Bottom Sheet 오픈 시 최근 방문 건물 목록 기본 노출 (최대 3건), 재방문 사용자 편의 향상</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01820U</b> <span class="sep">›</span> 건물 선택 BS</div>
+    <div class="footer-right">SD2026-002 · P.5</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 6: UFMDS01830U 카테고리 선택
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01830U">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span><span class="sep">›</span>
+      <b>UFMDS01830U</b><span class="sep">›</span>
+      <span>카테고리/키워드 선택</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item"><div class="nav-num">1</div><div class="nav-text"><span class="nav-id">UFMDS01810U</span><span class="nav-name">장소 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">2</div><div class="nav-text"><span class="nav-id">UFMDS01820U</span><span class="nav-name">건물 선택 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item active"><div class="nav-num">3</div><div class="nav-text"><span class="nav-id">UFMDS01830U</span><span class="nav-name">카테고리 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">4</div><div class="nav-text"><span class="nav-id">UFMDS01840U</span><span class="nav-name">상세 정보 입력</span></div></div>
+      <div class="nav-item"><div class="nav-num">5</div><div class="nav-text"><span class="nav-id">UFMDS01850U</span><span class="nav-name">이미지 첨부 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">6</div><div class="nav-text"><span class="nav-id">UFMDS01880U</span><span class="nav-name">접수 확인</span></div></div>
+      <div class="nav-item"><div class="nav-num">7</div><div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div></div>
+    </div>
+
+    <div class="slide-main">
+      <div class="screen-meta">
+        <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01830U</div></div>
+        <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">카테고리 선택</div></div>
+        <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-full">Full Screen</span></div></div>
+        <div class="meta-row"><div class="meta-label">단계</div><div class="meta-value"><span class="meta-tag tag-step">Step 2 / 3</span></div></div>
+        <div class="step-bar">
+          <div class="meta-label">진행률</div>
+          <div class="step-bar-track"><div class="step-bar-fill" style="width:66%"></div></div>
+          <div class="step-labels"><span>장소</span><span style="color:var(--brand); font-weight:700;">카테고리</span><span>상세</span></div>
+        </div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">5건</div></div>
+      </div>
+
+      <div class="mockup-zone" style="width:460px;">
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS (현행)</div>
+          <img class="mockup-img" src="./불편신고/UFMDS01830U.png" alt="UFMDS01830U AS-IS">
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE (개선안)</div>
+          <div class="wireframe" style="width:210px;">
+            <div class="wf-header">← 접수하기</div>
+            <div class="wf-progress" style="position:relative;"><div class="wf-progress-fill" style="width:66%"></div><span class="wf-num-label" style="top:auto; bottom:-10px; right:2px; background:var(--blue);">⑤</span></div>
+            <div class="wf-body">
+              <div class="wf-title">무엇을<br>도와드릴까요?</div>
+              <div class="wf-input">키워드를 검색해보세요 🔍</div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:8px; font-weight:700; color:var(--navy);">인기 키워드 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span></div>
+                <div style="font-size:8px; color:var(--blue); cursor:pointer;">카테고리 전체 보기 › <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">②</span></div>
+              </div>
+              <div class="wf-chip-grid">
+                <div class="wf-chip">문이 고장났어요</div>
+                <div class="wf-chip">통근버스 이용 불만</div>
+                <div class="wf-chip">변기가 막혔어요</div>
+                <div class="wf-chip">더러워요 치워주세요</div>
+                <div class="wf-chip highlight">설비 고장 신고</div>
+                <div class="wf-chip">온도 조절해주세요</div>
+              </div>
+              <div style="font-size:7.5px; color:var(--gray-md); font-style:italic;">↑ '칭찬해요' 태그는 별도 진입점으로 분리 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">④</span></div>
+              <div style="background:#1A1A2E; border-radius:6px; padding:6px; margin-top:auto;">
+                <div style="font-size:8px; color:rgba(255,255,255,0.7); margin-bottom:5px; text-align:center;">찾는 키워드가 없나요? <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">③</span></div>
+                <div style="display:flex; gap:3px;">
+                  <div style="flex:1; background:rgba(255,255,255,0.1); border-radius:4px; padding:4px; text-align:center; font-size:7.5px; color:#fff; font-weight:700;">기타 문의</div>
+                  <div style="flex:1; background:rgba(255,255,255,0.1); border-radius:4px; padding:4px; text-align:center; font-size:7.5px; color:#fff; font-weight:700;">FAQ</div>
+                  <div style="flex:1; background:rgba(255,255,255,0.1); border-radius:4px; padding:4px; text-align:center; font-size:7.5px; color:#fff; font-weight:700;">콜센터</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01830U — 카테고리/키워드 선택 개선안</div>
+        <div class="spec-asis">
+          <div class="spec-asis-title">현황 (AS-IS)</div>
+          <ul>
+            <li>키워드 태그 칩 불규칙 래핑 배치 / "칭찬해요" 혼재</li>
+            <li>카테고리 전체 보기 버튼이 스크롤 하단에만 위치</li>
+            <li>검색 결과 없음 화면: 기타 문의·FAQ만 노출 (콜센터 연결 없음)</li>
+          </ul>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr><th>#</th><th>항목</th><th>현황</th><th>개선 방향</th><th>우선순위</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">태그 칩 레이아웃</td>
+              <td class="asis">칩 길이 따라 불규칙 래핑 배치</td>
+              <td class="tobe">2열 고정 그리드로 정렬하여 가독성·일관성 향상</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="item-name">카테고리 전체 보기 위치</td>
+              <td class="asis">태그 칩 스크롤 후 하단에 위치</td>
+              <td class="tobe">검색창 바로 아래 고정 노출하여 접근성 향상</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="item-name">검색 결과 없음 화면 일관성</td>
+              <td class="asis">기타 문의·FAQ만 노출 (콜센터 연결 누락)</td>
+              <td class="tobe">기타 문의 / FAQ / 콜센터 연결 3개 옵션 모두 일관 노출</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="item-name">"칭찬해요" 태그 혼재</td>
+              <td class="asis">불편신고 플로우 내 칭찬 항목 노출</td>
+              <td class="tobe">칭찬/건의 카테고리는 별도 진입점 분리 또는 시각적 구분</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="item-name">진행 표시바 비율</td>
+              <td class="asis">Step 2 진행바 비율 불명확</td>
+              <td class="tobe">3단계 기준 정확히 2/3(66%) 지점으로 표시</td>
+              <td><span class="badge badge-p3">P3</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01830U</b> <span class="sep">›</span> 카테고리 선택</div>
+    <div class="footer-right">SD2026-002 · P.6</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 7: UFMDS01840U 상세 정보 입력
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01840U">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span><span class="sep">›</span>
+      <b>UFMDS01840U</b><span class="sep">›</span>
+      <span>상세 정보 입력</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item"><div class="nav-num">1</div><div class="nav-text"><span class="nav-id">UFMDS01810U</span><span class="nav-name">장소 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">2</div><div class="nav-text"><span class="nav-id">UFMDS01820U</span><span class="nav-name">건물 선택 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">3</div><div class="nav-text"><span class="nav-id">UFMDS01830U</span><span class="nav-name">카테고리 선택</span></div></div>
+      <div class="nav-item active"><div class="nav-num">4</div><div class="nav-text"><span class="nav-id">UFMDS01840U</span><span class="nav-name">상세 정보 입력</span></div></div>
+      <div class="nav-item"><div class="nav-num">5</div><div class="nav-text"><span class="nav-id">UFMDS01850U</span><span class="nav-name">이미지 첨부 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">6</div><div class="nav-text"><span class="nav-id">UFMDS01880U</span><span class="nav-name">접수 확인</span></div></div>
+      <div class="nav-item"><div class="nav-num">7</div><div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div></div>
+    </div>
+
+    <div class="slide-main">
+      <div class="screen-meta">
+        <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01840U</div></div>
+        <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">상세 정보 입력</div></div>
+        <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-full">Full Screen</span></div></div>
+        <div class="meta-row"><div class="meta-label">단계</div><div class="meta-value"><span class="meta-tag tag-step">Step 3 / 3</span></div></div>
+        <div class="step-bar">
+          <div class="meta-label">진행률</div>
+          <div class="step-bar-track"><div class="step-bar-fill" style="width:100%"></div></div>
+          <div class="step-labels"><span>장소</span><span>카테고리</span><span style="color:var(--brand); font-weight:700;">상세</span></div>
+        </div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">6건</div></div>
+      </div>
+
+      <div class="mockup-zone" style="width:460px;">
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS (현행)</div>
+          <img class="mockup-img" src="./불편신고/UFMDS01840U.png" alt="UFMDS01840U AS-IS">
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE (개선안)</div>
+          <div class="wireframe" style="width:210px;">
+            <div class="wf-header">← 접수하기</div>
+            <div class="wf-progress"><div class="wf-progress-fill" style="width:100%"></div></div>
+            <div class="wf-body">
+              <div style="font-size:8px; color:var(--brand); font-weight:700;">문이 고장났어요</div>
+              <div class="wf-title" style="font-size:11px;">도와드리기 위해<br>필요한 정보가 있어요</div>
+              <div class="wf-section">상세 장소 *</div>
+              <div class="wf-input" style="position:relative;">예: 703호 입구, 3층 복도 끝 <span class="wf-num-label">③</span></div>
+              <div class="wf-section">상세 요청 * <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">②</span></div>
+              <div class="wf-row">
+                <div class="wf-tab sel">고장/장애</div>
+                <div class="wf-tab">신규/변경</div>
+              </div>
+              <div class="wf-section">상세 내용 *</div>
+              <div class="wf-textarea" style="position:relative;">
+                상세 내용을 입력해주세요
+                <div class="wf-char-count">0 / 200자 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:var(--blue);">⑥</span></div>
+              </div>
+              <div class="wf-section">이미지 첨부 (최대 3장) <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span></div>
+              <div class="wf-img-row">
+                <div class="wf-img-thumb">📷</div>
+                <div class="wf-img-add">+</div>
+              </div>
+              <div class="wf-section">일정 여부</div>
+              <div class="wf-row">
+                <div class="wf-tab sel">즉시 신청</div>
+                <div class="wf-tab" style="position:relative;">예약 <span class="wf-num-label">⑤</span></div>
+              </div>
+            </div>
+            <div class="wf-btn disabled" style="position:relative;">확인 (필수항목 입력 후 활성화) <span class="wf-num-label" style="background:var(--gray-md);">④</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01840U — 상세 정보 입력 개선안</div>
+        <div class="spec-asis">
+          <div class="spec-asis-title">현황 (AS-IS)</div>
+          <ul>
+            <li>이미지 첨부 1장 제한 / 상세 요청 타입 카테고리 무관 고정 노출</li>
+            <li>상세 장소 placeholder에 예시 없음 / 글자수 제한 미정의</li>
+            <li>필수값 미입력 시 확인 버튼 자체가 미노출됨</li>
+          </ul>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr><th>#</th><th>항목</th><th>현황</th><th>개선 방향</th><th>우선순위</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">이미지 첨부 제한</td>
+              <td class="asis">1장만 첨부 가능</td>
+              <td class="tobe">최대 3장으로 확대 고려 (서버 부하 기준 최종 결정). 버튼 옆 "최대 N장" 레이블 미리 노출</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="item-name">요청 타입 동적 분기</td>
+              <td class="asis">모든 카테고리에 신규/변경·고장/장애 동일 노출</td>
+              <td class="tobe">선택 카테고리에 따라 요청 타입 옵션 동적 변경 (예: 통근버스 민원은 미노출)</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="item-name">상세 장소 Placeholder</td>
+              <td class="asis">"정확한 위치를 입력해주세요"</td>
+              <td class="tobe">예시 텍스트 추가: "예: 703호 입구, 3층 복도 끝"</td>
+              <td><span class="badge badge-p3">P3</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="item-name">확인 버튼 동작</td>
+              <td class="asis">필수값 미입력 시 버튼 자체 미노출</td>
+              <td class="tobe">항상 노출 + 미입력 시 disabled 처리, 탭 시 미입력 필드 강조 표시</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="item-name">예약 날짜 선택 UI</td>
+              <td class="asis">날짜·시간 텍스트만 표시</td>
+              <td class="tobe">Native Date/Time Picker 사용 방식 정의. 선택 가능 범위(최소: 당일+1, 최대: 30일) 명세</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="item-name">글자수 카운터</td>
+              <td class="asis">미정의</td>
+              <td class="tobe">textarea 우측 하단에 "0 / 200자" 형식으로 입력 가능 글자수 표시</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01840U</b> <span class="sep">›</span> 상세 정보 입력</div>
+    <div class="footer-right">SD2026-002 · P.7</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 8: UFMDS01850U 이미지 첨부 BS
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01850U">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span><span class="sep">›</span>
+      <b>UFMDS01850U</b><span class="sep">›</span>
+      <span>이미지 첨부 Bottom Sheet</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item"><div class="nav-num">1</div><div class="nav-text"><span class="nav-id">UFMDS01810U</span><span class="nav-name">장소 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">2</div><div class="nav-text"><span class="nav-id">UFMDS01820U</span><span class="nav-name">건물 선택 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">3</div><div class="nav-text"><span class="nav-id">UFMDS01830U</span><span class="nav-name">카테고리 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">4</div><div class="nav-text"><span class="nav-id">UFMDS01840U</span><span class="nav-name">상세 정보 입력</span></div></div>
+      <div class="nav-item active"><div class="nav-num">5</div><div class="nav-text"><span class="nav-id">UFMDS01850U</span><span class="nav-name">이미지 첨부 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">6</div><div class="nav-text"><span class="nav-id">UFMDS01880U</span><span class="nav-name">접수 확인</span></div></div>
+      <div class="nav-item"><div class="nav-num">7</div><div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div></div>
+    </div>
+
+    <div class="slide-main">
+      <div class="screen-meta">
+        <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01850U</div></div>
+        <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">이미지 첨부</div></div>
+        <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-bs">Bottom Sheet</span></div></div>
+        <div class="meta-row"><div class="meta-label">진입 조건</div><div class="meta-value" style="font-size:10px;">사진 추가 버튼 탭 시</div></div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">1건</div></div>
+      </div>
+
+      <div class="mockup-zone" style="width:460px;">
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS (현행)</div>
+          <img class="mockup-img" src="./불편신고/UFMDS01850U.png" alt="UFMDS01850U AS-IS">
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE (개선안)</div>
+          <div class="wireframe" style="width:210px;">
+            <div class="wf-body" style="padding:0;">
+              <div style="background:rgba(0,0,0,0.4); flex:1; min-height:160px; display:flex; align-items:flex-end;">
+                <div style="background:#fff; border-radius:16px 16px 0 0; width:100%; padding:14px 14px 0;">
+                  <div style="font-size:12px; font-weight:700; text-align:center; margin-bottom:4px; color:var(--navy);">이미지 첨부</div>
+                  <div style="font-size:8.5px; color:var(--gray-md); text-align:center; margin-bottom:12px;">최대 3장 첨부 가능 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span></div>
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
+                    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+                      <div style="width:40px; height:40px; border:1.5px solid var(--gray-lt); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:20px;">📷</div>
+                      <div style="font-size:8px; color:var(--gray-dk);">사진 촬영</div>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+                      <div style="width:40px; height:40px; border:1.5px solid var(--gray-lt); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:20px;">🖼</div>
+                      <div style="font-size:8px; color:var(--gray-dk);">갤러리</div>
+                    </div>
+                  </div>
+                  <div style="height:1px; background:var(--gray-lt); margin-bottom:8px;"></div>
+                  <div style="font-size:8.5px; text-align:center; color:var(--gray-md); padding-bottom:8px;">취소</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01850U — 이미지 첨부 Bottom Sheet 개선안</div>
+        <div class="spec-asis">
+          <div class="spec-asis-title">현황 (AS-IS)</div>
+          <ul>
+            <li>사진 촬영 / 갤러리 2가지 옵션 제공</li>
+            <li>이미지 제한(1장) 안내가 첨부 초과 후에야 노출됨 (사후 고지)</li>
+          </ul>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr><th>#</th><th>항목</th><th>현황</th><th>개선 방향</th><th>우선순위</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">이미지 제한 사전 안내</td>
+              <td class="asis">1장 초과 시도 후 제한 안내 표시 (사후 고지)</td>
+              <td class="tobe">Bottom Sheet 상단에 "최대 N장 첨부 가능" 레이블 상시 노출하여 사전 안내</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top: 8px; background: #FFF8E1; border-radius:8px; padding:10px 14px; border-left:3px solid var(--yellow);">
+          <div style="font-size:10px; font-weight:700; color:#5D4037; margin-bottom:4px;">연계 개선 사항</div>
+          <div style="font-size:10px; color:#6D4C41;">이미지 첨부 제한 안내 문구를 UFMDS01840U 이미지 업로드 영역에도 동일하게 표기 ("최대 3장" 레이블 일관 노출)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01850U</b> <span class="sep">›</span> 이미지 첨부 BS</div>
+    <div class="footer-right">SD2026-002 · P.8</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 9: UFMDS01880U 접수 확인
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01880U">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span><span class="sep">›</span>
+      <b>UFMDS01880U</b><span class="sep">›</span>
+      <span>접수 확인</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item"><div class="nav-num">1</div><div class="nav-text"><span class="nav-id">UFMDS01810U</span><span class="nav-name">장소 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">2</div><div class="nav-text"><span class="nav-id">UFMDS01820U</span><span class="nav-name">건물 선택 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">3</div><div class="nav-text"><span class="nav-id">UFMDS01830U</span><span class="nav-name">카테고리 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">4</div><div class="nav-text"><span class="nav-id">UFMDS01840U</span><span class="nav-name">상세 정보 입력</span></div></div>
+      <div class="nav-item"><div class="nav-num">5</div><div class="nav-text"><span class="nav-id">UFMDS01850U</span><span class="nav-name">이미지 첨부 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item active"><div class="nav-num">6</div><div class="nav-text"><span class="nav-id">UFMDS01880U</span><span class="nav-name">접수 확인</span></div></div>
+      <div class="nav-item"><div class="nav-num">7</div><div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div></div>
+    </div>
+
+    <div class="slide-main">
+      <div class="screen-meta">
+        <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01880U</div></div>
+        <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">접수 확인</div></div>
+        <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-bs">Bottom Sheet</span></div></div>
+        <div class="meta-row"><div class="meta-label">진입 조건</div><div class="meta-value" style="font-size:10px;">확인 버튼 탭 후</div></div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">4건</div></div>
+      </div>
+
+      <div class="mockup-zone" style="width:620px;">
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS (현행)</div>
+          <img class="mockup-img" style="height:460px;" src="./불편신고/UFMDS01880U.png" alt="UFMDS01880U AS-IS">
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE ① 접수 확인</div>
+          <div class="wireframe" style="width:185px; height:460px;">
+            <div class="wf-body" style="padding:0;">
+              <div style="background:rgba(0,0,0,0.3); flex:0 0 50px;"></div>
+              <div style="background:#fff; border-radius:16px 16px 0 0; flex:1; padding:10px 10px 5px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div style="font-size:10px; font-weight:700; color:var(--navy);">접수 확인</div>
+                  <div style="font-size:10px; color:var(--gray-md);">✕ <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; margin-left:2px;">③</span></div>
+                </div>
+                <div style="font-size:9px; font-weight:700; color:var(--navy);">접수 정보를 확인해주세요</div>
+                <div style="height:1px; background:var(--gray-lt);"></div>
+                <div class="wf-summary-row"><span class="wf-summary-label">접수 위치</span><span class="wf-summary-value" style="font-size:7.5px;">D&amp;O 강서사옥 7F</span></div>
+                <div class="wf-summary-row"><span class="wf-summary-label">접수 분류</span><span><span class="wf-tag" style="position:relative;">설비고장 <span class="wf-num-label" style="top:-2px; right:-2px; background:var(--blue);">②</span></span></span></div>
+                <div class="wf-summary-row"><span class="wf-summary-label">처리 희망</span><span class="wf-summary-value" style="font-size:7.5px;">최대한 빠르게</span></div>
+                <div class="wf-summary-row">
+                  <span class="wf-summary-label">첨부</span>
+                  <div style="display:flex; gap:2px; align-items:center;">
+                    <div style="width:22px; height:22px; background:var(--gray-lt); border-radius:3px;"></div>
+                    <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span>
+                  </div>
+                </div>
+                <div style="font-size:7.5px; color:var(--blue); text-align:right;">수정하기 › <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">④</span></div>
+                <div style="height:1px; background:var(--gray-lt);"></div>
+              </div>
+              <div style="display:flex; gap:4px; background:#fff; padding:0 10px 7px; margin-top:auto;">
+                <div class="wf-btn-outline" style="font-size:8px; padding:5px;">이전</div>
+                <div class="wf-btn-primary" style="font-size:8px; padding:5px;">접수할게요</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE ③ 취소 다이얼로그</div>
+          <div class="wireframe" style="width:185px; height:460px; position:relative;">
+            <div class="wf-body" style="padding:0; position:relative;">
+              <div style="background:rgba(0,0,0,0.3); flex:0 0 50px;"></div>
+              <div style="background:#fff; border-radius:16px 16px 0 0; flex:1; padding:10px 10px 5px; display:flex; flex-direction:column; gap:5px; overflow:hidden; opacity:0.35;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div style="font-size:10px; font-weight:700; color:var(--navy);">접수 확인</div>
+                  <div style="font-size:10px; color:var(--gray-md);">✕</div>
+                </div>
+                <div style="font-size:9px; font-weight:700; color:var(--navy);">접수 정보를 확인해주세요</div>
+                <div style="height:1px; background:var(--gray-lt);"></div>
+                <div class="wf-summary-row"><span class="wf-summary-label">접수 위치</span><span class="wf-summary-value" style="font-size:7.5px;">D&amp;O 강서사옥 7F</span></div>
+                <div class="wf-summary-row"><span class="wf-summary-label">접수 분류</span><span><span class="wf-tag">설비고장</span></span></div>
+              </div>
+            </div>
+            <!-- 취소 확인 다이얼로그 오버레이 -->
+            <div class="wf-overlay-dialog">
+              <div class="wf-dialog-box">
+                <div class="wf-dialog-title">접수를<br>취소하시겠습니까?</div>
+                <div class="wf-dialog-desc">작성 중인 내용이<br>모두 삭제됩니다.</div>
+                <div class="wf-dialog-btns">
+                  <div class="wf-dialog-btn-cancel">계속 작성</div>
+                  <div class="wf-dialog-btn-confirm">취소하기</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01880U — 접수 확인 Bottom Sheet 개선안</div>
+        <div class="spec-asis">
+          <div class="spec-asis-title">현황 (AS-IS)</div>
+          <ul>
+            <li>접수 위치·분류·처리 희망시간·상세 내용 요약 표시</li>
+            <li>첨부 이미지 미리보기 없음 / 분류 태그 노란색 고정</li>
+            <li>X 버튼으로 Bottom Sheet 닫기만 가능 (취소 확인 없음)</li>
+            <li>확인 화면에서 개별 항목 수정 불가</li>
+          </ul>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr><th>#</th><th>항목</th><th>현황</th><th>개선 방향</th><th>우선순위</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">첨부 이미지 미리보기</td>
+              <td class="asis">이미지 표시 없음</td>
+              <td class="tobe">첨부 이미지 있을 경우 썸네일 미리보기 표시하여 최종 확인 정확도 향상</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="item-name">분류 태그 색상 정책</td>
+              <td class="asis">노란색 고정</td>
+              <td class="tobe">카테고리별 색상 구분 또는 단일 색상 정책 명세 (디자인 시스템 정의 필요)</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="item-name">취소 확인 다이얼로그</td>
+              <td class="asis">X 버튼 탭 시 바로 닫힘 (확인 없음)</td>
+              <td class="tobe">X 탭 시 "접수를 취소하시겠습니까?" 확인 다이얼로그 추가. 홈 이탈 vs 취소 동선 구분</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="item-name">항목별 수정 진입</td>
+              <td class="asis">이전 버튼으로만 이동 가능</td>
+              <td class="tobe">"수정하기" 링크 또는 항목 직접 탭으로 해당 단계로 이동하는 인라인 수정 UX 고려</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01880U</b> <span class="sep">›</span> 접수 확인</div>
+    <div class="footer-right">SD2026-002 · P.9</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 10: UFMDS01890U 접수 완료
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01890U">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span><span class="sep">›</span>
+      <b>UFMDS01890U</b><span class="sep">›</span>
+      <span>접수 완료</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item"><div class="nav-num">1</div><div class="nav-text"><span class="nav-id">UFMDS01810U</span><span class="nav-name">장소 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">2</div><div class="nav-text"><span class="nav-id">UFMDS01820U</span><span class="nav-name">건물 선택 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">3</div><div class="nav-text"><span class="nav-id">UFMDS01830U</span><span class="nav-name">카테고리 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">4</div><div class="nav-text"><span class="nav-id">UFMDS01840U</span><span class="nav-name">상세 정보 입력</span></div></div>
+      <div class="nav-item"><div class="nav-num">5</div><div class="nav-text"><span class="nav-id">UFMDS01850U</span><span class="nav-name">이미지 첨부 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">6</div><div class="nav-text"><span class="nav-id">UFMDS01880U</span><span class="nav-name">접수 확인</span></div></div>
+      <div class="nav-item active"><div class="nav-num">7</div><div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div></div>
+    </div>
+
+    <div class="slide-main">
+      <div class="screen-meta">
+        <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01890U</div></div>
+        <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">접수 완료</div></div>
+        <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-full">Full Screen</span></div></div>
+        <div class="meta-row"><div class="meta-label">진입 조건</div><div class="meta-value" style="font-size:10px;">접수할게요 버튼 탭 후</div></div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">5건</div></div>
+      </div>
+
+      <div class="mockup-zone" style="width:460px;">
+        <div class="mockup-block">
+          <div class="mockup-label">AS-IS (현행)</div>
+          <img class="mockup-img" src="./불편신고/UFMDS01890U.png" alt="UFMDS01890U AS-IS">
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">TO-BE (개선안)</div>
+          <div class="wireframe" style="width:210px;">
+            <div class="wf-header" style="display:flex; justify-content:space-between; align-items:center;">
+              <span>← 히스토리 화면 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:#fff; color:var(--brand);">⑤</span></span>
+            </div>
+            <div class="wf-body" style="align-items:center; text-align:center;">
+              <div style="font-size:11px; font-weight:700; color:var(--navy); margin-top:4px;">문이 고장났어요</div>
+              <div style="display:inline-block; padding:2px 8px; border-radius:8px; font-size:8.5px; font-weight:700; background:var(--brand-lt); color:var(--brand); margin-bottom:6px;">설비 고장/수리/요청</div>
+              <div style="font-size:32px; margin:8px 0;">✅</div>
+              <div style="font-size:14px; font-weight:800; color:var(--navy); margin-bottom:4px;">신청 완료</div>
+              <div class="wf-receipt-no" style="position:relative;">접수번호 #2026040600123 <span class="wf-num-label">③</span></div>
+              <div style="font-size:8.5px; color:var(--gray-md); margin-top:4px;">보통 2시간 이내 처리됩니다 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:var(--blue);">④</span></div>
+              <div class="wf-info-box" style="text-align:left; margin-top:4px; font-size:8px; position:relative;">
+                업무시간(18시) 이후 신청건은 익일 처리됩니다<br>
+                <span style="font-size:7.5px; color:var(--gray-md);">※ 업무시간 외에만 표시</span>
+                <span class="wf-num-label">①</span>
+              </div>
+              <div style="margin-top: auto; width:100%; display:flex; flex-direction:column; gap:4px;">
+                <div class="wf-btn" style="border-radius:8px; padding:7px; font-size:9.5px; position:relative;">홈으로 돌아가기 <span class="wf-num-label" style="background:#fff; color:var(--brand);">②</span></div>
+                <div style="display:flex; gap:4px;">
+                  <div style="flex:1; border:1px solid var(--gray-lt); border-radius:8px; padding:5px; text-align:center; font-size:8px; color:var(--gray-dk);">콜센터 연결</div>
+                  <div style="flex:1; border:1px solid var(--gray-lt); border-radius:8px; padding:5px; text-align:center; font-size:8px; color:var(--gray-dk);">접수 내역 확인</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01890U — 접수 완료 개선안</div>
+        <div class="spec-asis">
+          <div class="spec-asis-title">현황 (AS-IS)</div>
+          <ul>
+            <li>신청 완료 아이콘 + 서비스명 + 카테고리 태그 표시</li>
+            <li>업무시간 외 지연 안내 문구 항상 노출 (조건 무관)</li>
+            <li>콜센터 연결·접수 내역 확인 버튼만 존재, 홈 이동 CTA 없음</li>
+            <li>접수번호·예상 처리시간 미표시</li>
+          </ul>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr><th>#</th><th>항목</th><th>현황</th><th>개선 방향</th><th>우선순위</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">업무시간 외 안내 조건부 노출</td>
+              <td class="asis">업무시간 내·외 모두 항상 노출</td>
+              <td class="tobe">현재 시각 ≥ 18:00일 때만 조건부 노출. 업무시간 내 접수 시 미표시</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="item-name">홈 이동 CTA</td>
+              <td class="asis">없음</td>
+              <td class="tobe">"홈으로 돌아가기" 주 버튼 추가. 콜센터·접수 내역은 보조 버튼으로 배치</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="item-name">접수번호 표시</td>
+              <td class="asis">없음</td>
+              <td class="tobe">접수번호(ID)를 완료 화면에 표시. 추후 문의 시 참조 편의성 및 사용자 신뢰도 향상</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="item-name">예상 처리 시간 안내</td>
+              <td class="asis">없음</td>
+              <td class="tobe">카테고리별 평균 처리 시간 안내 (예: "보통 2시간 이내 처리됩니다") 표시 고려</td>
+              <td><span class="badge badge-p2">P2</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="item-name">뒤로가기 동작 정의</td>
+              <td class="asis">미정의</td>
+              <td class="tobe">완료 화면에서 Back 탭 시 히스토리(접수 내역) 화면으로 이동. 접수 플로우 스택을 초기화하여 접수 재진행 방지</td>
+              <td><span class="badge badge-p1">P1</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01890U</b> <span class="sep">›</span> 접수 완료</div>
+    <div class="footer-right">SD2026-002 · P.10</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SLIDE 11: 공통 개선 사항
+══════════════════════════════════════ -->
+<div class="slide" id="slide-common">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <b>불편신고</b><span class="sep">›</span>
+      <span>공통 개선 사항</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body" style="display:block;">
+    <div style="padding: 28px 48px; display:flex; flex-direction:column; gap:20px; height:100%; overflow:hidden;">
+      <div style="font-size:18px; font-weight:700; color:var(--navy); border-left:3px solid var(--brand); padding-left:12px;">공통 개선 사항 & 우선순위 요약</div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; flex:1;">
+        <div>
+          <div style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:10px;">공통 개선 항목</div>
+          <table class="spec-table">
+            <thead>
+              <tr><th>#</th><th>항목</th><th>내용</th><th>우선순위</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="item-name">진행 표시바 레이블</td>
+                <td>단계명 레이블 추가 (장소 → 카테고리 → 상세입력)</td>
+                <td><span class="badge badge-p2">P2</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="item-name">뒤로가기 데이터 유지</td>
+                <td>이전 단계 복귀 시 입력값 유지 여부 명세 필요</td>
+                <td><span class="badge badge-p1">P1</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="item-name">네트워크 오류 처리</td>
+                <td>접수 실패 시 에러 화면/재시도 UX 추가 정의 필요</td>
+                <td><span class="badge badge-p1">P1</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="item-name">접근성 레이블</td>
+                <td>태그 칩, 토글 버튼에 aria-label 정의 필요</td>
+                <td><span class="badge badge-p3">P3</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <div style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:10px;">전체 우선순위 요약</div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="background:#FFEBEE; border-radius:8px; padding:10px 14px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                <span class="badge badge-p1">P1</span>
+                <span style="font-size:11px; font-weight:700; color:#C62828;">즉시 반영 필요 — 핵심 UX</span>
+              </div>
+              <div style="font-size:10px; color:#B71C1C; line-height:1.6;">
+                층 드롭다운 Sequential 활성화 / 최근 건물 기본값 / 검색결과 없음 처리 / 카테고리 전체보기 위치 / 검색결과 없음 일관성 / 요청 타입 동적 분기 / 확인 버튼 Disabled 처리 / 취소 확인 다이얼로그 / 이미지 미리보기 / 홈 이동 CTA / 접수번호 표시 / 업무시간 조건부 노출 / 뒤로가기 스택초기화 / 뒤로가기 데이터 유지 / 네트워크 오류 처리
+              </div>
+            </div>
+            <div style="background:#FFF8E1; border-radius:8px; padding:10px 14px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                <span class="badge badge-p2">P2</span>
+                <span style="font-size:11px; font-weight:700; color:#F57F17;">차기 스프린트 반영</span>
+              </div>
+              <div style="font-size:10px; color:#E65100; line-height:1.6;">
+                현위치 자동 선택 버튼 / 추천 건물 레이블 개선 / 최근 방문 건물 목록 / 이미지 제한 사전 안내 / 예약 날짜 Picker 명세 / 글자수 카운터 / 분류 태그 색상 정책 / 수정 진입 UX / 예상 처리시간 안내 / 진행바 레이블
+              </div>
+            </div>
+            <div style="background:#E8F5E9; border-radius:8px; padding:10px 14px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                <span class="badge badge-p3">P3</span>
+                <span style="font-size:11px; font-weight:700; color:#2E7D32;">여유 시 반영</span>
+              </div>
+              <div style="font-size:10px; color:#1B5E20; line-height:1.6;">
+                칩 레이아웃 2열 그리드 / 칭찬 태그 분리 / 진행바 비율 / Placeholder 예시 / 파일 첨부 옵션 추가 / 접근성 레이블
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>공통 개선 사항</b></div>
+    <div class="footer-right">SD2026-002 · P.11</div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    var navId = item.querySelector('.nav-id');
+    if (!navId) return;
+    var screenId = navId.textContent.trim();
+    item.addEventListener('click', function() {
+      var target = document.getElementById('slide-' + screenId);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
