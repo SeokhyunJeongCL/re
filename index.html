@@ -1264,7 +1264,7 @@
       <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block" style="position:relative;">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="./불편신고/UFMDS01810U-11.png" alt="UFMDS01810U AS-IS 팝업">
+          <img class="mockup-img" src="./불편신고/UFMDS01810U.png" alt="UFMDS01810U AS-IS">
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">TO-BE (개선안)</div>
@@ -1327,9 +1327,9 @@
           <div class="spec-asis-title">현황 (AS-IS)</div>
           <ul>
             <li>Step 1/3 진행 표시바 (단계명 레이블 없음)</li>
-            <li>건물 검색 입력 + 층 드롭다운 항상 노출</li>
-            <li>건물 미선택 시에도 층 드롭다운 활성화 상태</li>
-            <li>현위치 불일치 시 팝업으로만 추천</li>
+            <li>내정보에 설정된 건물·층이 기본값으로 자동 세팅 (고정값)</li>
+            <li>건물 변경 후 층 드롭다운 초기화 조건 미정의</li>
+            <li>현위치 불일치 시 팝업으로만 추천 (취소 버튼 없음)</li>
           </ul>
         </div>
         <table class="spec-table">
@@ -1346,15 +1346,15 @@
             <tr>
               <td>1</td>
               <td class="item-name">층 선택 활성화 시점</td>
-              <td class="asis">건물 미선택 시에도 층 드롭다운 노출·활성화</td>
-              <td class="tobe">건물 선택 완료 후 층 드롭다운 활성화 (Sequential UX)</td>
+              <td class="asis">건물 변경 시 층 드롭다운 초기화 조건 미정의 — 이전 층값 유지 여부 불명확</td>
+              <td class="tobe">건물 변경 완료 후 층 드롭다운 자동 초기화 및 재선택 유도 (Sequential UX)</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
               <td>2</td>
-              <td class="item-name">기본값 자동 세팅</td>
-              <td class="asis">매번 건물·층 선택 필요</td>
-              <td class="tobe">최근 사용 건물·층을 기본값으로 세팅, 다를 경우만 수정</td>
+              <td class="item-name">기본값 세팅 기준</td>
+              <td class="asis">내정보에 설정된 건물·층 고정값을 항상 기본 적용</td>
+              <td class="tobe">최근 불편신고 이력 기반으로 건물·층 우선 세팅, 내정보와 다를 경우 안내 제공</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
@@ -1416,7 +1416,7 @@
         <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01820U</div></div>
         <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">건물 선택</div></div>
         <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-bs">Bottom Sheet</span></div></div>
-        <div class="meta-row"><div class="meta-label">진입 조건</div><div class="meta-value" style="font-size:10px;">건물 검색 필드 탭 시</div></div>
+        <div class="meta-row"><div class="meta-label">진입 조건</div><div class="meta-value" style="font-size:10px;">내정보 기본 건물 변경 필요 시 / 건물 검색 필드 탭 시</div></div>
         <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">3건</div></div>
       </div>
 
@@ -1449,9 +1449,10 @@
         <div class="spec-asis">
           <div class="spec-asis-title">현황 (AS-IS)</div>
           <ul>
-            <li>검색창 + "현위치로 근처 건물 보기" 링크</li>
+            <li>내정보 기본 건물 변경 시 진입하는 BS — 초기 화면은 빈 검색창</li>
+            <li>검색창 + "현위치로 근처 건물 보기" 링크만 노출</li>
             <li>검색 결과: 건물명 + 거리 + 라디오 버튼</li>
-            <li>검색 결과 없음 / 최근 검색 미정의</li>
+            <li>검색 결과 없음 / 초기 상태 기본 목록 미정의</li>
           </ul>
         </div>
         <table class="spec-table">
@@ -1463,7 +1464,7 @@
               <td>1</td>
               <td class="item-name">검색 결과 없음 처리</td>
               <td class="asis">빈 화면 (미정의)</td>
-              <td class="tobe">검색 결과 없을 때 "검색 결과가 없습니다" 안내 메시지 표시 및 검색어 수정 유도 (직접 입력 유도 문구는 제거)</td>
+              <td class="tobe">검색 결과 없을 때 "검색 결과가 없습니다" 안내 메시지 표시 및 검색어 수정 유도</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
@@ -1475,9 +1476,9 @@
             </tr>
             <tr>
               <td>3</td>
-              <td class="item-name">최근 방문 건물</td>
-              <td class="asis">없음</td>
-              <td class="tobe">Bottom Sheet 오픈 시 최근 방문 건물 목록 기본 노출 (최대 3건), 재방문 사용자 편의 향상</td>
+              <td class="item-name">초기 진입 기본 목록</td>
+              <td class="asis">검색 전 빈 화면 — 내정보 건물 외 참고할 목록 없음</td>
+              <td class="tobe">BS 오픈 시 최근 불편신고 건물 목록 기본 노출 (최대 3건) — 내정보 고정값과 별개로 자주 신고하는 건물 빠른 접근</td>
               <td><span class="badge badge-p2">P2</span></td>
             </tr>
           </tbody>
