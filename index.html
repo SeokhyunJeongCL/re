@@ -1268,7 +1268,7 @@
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">TO-BE (개선안)</div>
-          <div class="wireframe" style="width:210px;">
+          <div class="wireframe" style="width:210px; position:relative;">
             <div class="wf-header">← 접수하기</div>
             <div class="wf-progress"><div class="wf-progress-fill" style="width:33%"></div></div>
             <div class="wf-body" style="padding:10px 10px 6px;">
@@ -1288,6 +1288,20 @@
               <div style="font-size:8px; color:var(--gray-md); font-style:italic;">↑ 건물 선택 후 활성화</div>
             </div>
             <div class="wf-btn">확인</div>
+            <div class="wf-overlay-dialog" style="background:transparent; align-items:flex-start; justify-content:flex-start; padding:4px;">
+              <div class="wf-dialog-box" style="width:180px; padding:12px 10px 10px; box-shadow:0 8px 20px rgba(0,0,0,0.18); position:relative;">
+                <span class="wf-num-label" style="top:-10px; right:-10px;">④</span>
+                <div class="wf-dialog-title" style="font-size:10px; margin-bottom:4px;">추천 건물 팝업</div>
+                <div class="wf-dialog-desc" style="font-size:8.5px; margin-bottom:10px; line-height:1.4; color:var(--gray-dk);">
+                  현재: "이 건물로 변경할게요"<br>
+                  개선: "D&amp;O 강서사옥으로 변경"
+                </div>
+                <div class="wf-dialog-btns" style="gap:6px;">
+                  <div class="wf-dialog-btn-cancel">취소</div>
+                  <div class="wf-dialog-btn-confirm">변경</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
