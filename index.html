@@ -2455,12 +2455,14 @@
 
   slides.forEach(function(slide, index) {
     slide.addEventListener('click', function(event) {
+      if (!document.fullscreenElement) return;
       if (event.button !== 0) return;
       if (event.target.closest('a, button, input, textarea, select, label, .nav-item')) return;
       goNext();
     });
 
     slide.addEventListener('contextmenu', function(event) {
+      if (!document.fullscreenElement) return;
       event.preventDefault();
       goPrev();
     });
