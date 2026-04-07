@@ -2251,7 +2251,8 @@
   function updateScale() {
     var slideWidth = 1280;
     var slideHeight = 720;
-    var scale = Math.min(window.innerWidth / slideWidth, window.innerHeight / slideHeight);
+    var ratio = Math.min(window.innerWidth / slideWidth, window.innerHeight / slideHeight);
+    var scale = Math.min(1, ratio);
     document.documentElement.style.setProperty('--page-scale', scale.toFixed(4));
   }
 
