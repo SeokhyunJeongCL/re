@@ -1264,20 +1264,7 @@
       <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block" style="position:relative;">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="./불편신고/UFMDS01810U.png" alt="UFMDS01810U AS-IS">
-          <div class="wf-overlay-dialog" style="position:absolute; left:0; right:0; bottom:56px; top:auto; background:transparent; align-items:flex-end; justify-content:center; padding:0; pointer-events:none;">
-            <div class="wf-dialog-box" style="width:180px; padding:12px 10px 10px; box-shadow:0 8px 20px rgba(0,0,0,0.18); position:relative;">
-              <span class="wf-num-label" style="top:-10px; right:-10px;">④</span>
-              <div class="wf-dialog-title" style="font-size:10px; margin-bottom:4px;">추천 건물 팝업</div>
-              <div class="wf-dialog-desc" style="font-size:8.5px; margin-bottom:10px; line-height:1.4; color:var(--gray-dk);">
-                현재: "이 건물로 변경할게요"
-              </div>
-              <div class="wf-dialog-btns" style="gap:6px;">
-                <div class="wf-dialog-btn-cancel">취소</div>
-                <div class="wf-dialog-btn-confirm">변경</div>
-              </div>
-            </div>
-          </div>
+          <img class="mockup-img" src="./불편신고/UFMDS01810U-11.png" alt="UFMDS01810U AS-IS 팝업">
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">TO-BE (개선안)</div>
@@ -1285,7 +1272,7 @@
             <div class="wf-header">← 접수하기</div>
             <div class="wf-progress"><div class="wf-progress-fill" style="width:33%"></div></div>
             <div class="wf-body" style="padding:10px 10px 6px;">
-              <div style="font-size:8.5px; color:var(--gray-md);">샌디가 불편신고를 접수해드릴께요</div>
+              <div style="font-size:8.5px; color:var(--gray-md);">파인센터 불편 신고를 접수합니다</div>
               <div class="wf-title">도움이 필요하신<br><b>장소</b>를 골라주세요</div>
               <div class="wf-divider"></div>
               <div style="display:flex; gap:4px; align-items:center;">
@@ -1301,17 +1288,28 @@
               <div style="font-size:8px; color:var(--gray-md); font-style:italic;">↑ 건물 선택 후 활성화</div>
             </div>
             <div class="wf-btn">확인</div>
-            <div class="wf-overlay-dialog" style="position:absolute; left:0; right:0; bottom:56px; top:auto; background:transparent; align-items:flex-end; justify-content:center; padding:0;">
-              <div class="wf-dialog-box" style="width:180px; padding:12px 10px 10px; box-shadow:0 8px 20px rgba(0,0,0,0.18); position:relative;">
+            <!-- 개선된 추천 건물 팝업 -->
+            <div style="position:absolute; left:0; right:0; bottom:0; top:0; background:rgba(0,0,0,0.35); border-radius:16px; display:flex; align-items:flex-end; justify-content:center; padding-bottom:52px;">
+              <div style="background:#fff; border-radius:12px; width:182px; box-shadow:0 8px 24px rgba(0,0,0,0.22); overflow:hidden; position:relative;">
                 <span class="wf-num-label" style="top:-10px; right:-10px;">④</span>
-                <div class="wf-dialog-title" style="font-size:10px; margin-bottom:4px;">추천 건물 팝업</div>
-                <div class="wf-dialog-desc" style="font-size:8.5px; margin-bottom:10px; line-height:1.4; color:var(--gray-dk);">
-                  현재: "이 건물로 변경할게요"<br>
-                  개선: "D&amp;O 강서사옥으로 변경"
+                <!-- 팝업 헤더 -->
+                <div style="background:var(--brand-lt); padding:8px 10px 6px; border-bottom:1px solid var(--gray-lt);">
+                  <div style="font-size:8.5px; font-weight:700; color:var(--brand);">📍 가까운 건물을 찾았어요!</div>
+                  <div style="font-size:7.5px; color:var(--gray-dk); margin-top:2px;">기본 건물이 현위치와 멀어요</div>
                 </div>
-                <div class="wf-dialog-btns" style="gap:6px;">
-                  <div class="wf-dialog-btn-cancel">취소</div>
-                  <div class="wf-dialog-btn-confirm">변경</div>
+                <!-- 건물 정보 -->
+                <div style="padding:8px 10px 6px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:3px;">
+                    <div style="font-size:9.5px; font-weight:700; color:var(--navy);">D&amp;O 강서사옥</div>
+                    <div style="font-size:8px; font-weight:700; color:var(--brand);">423m</div>
+                  </div>
+                  <div style="font-size:7.5px; color:var(--gray-md);">📍 서울 강서구 마곡동 812</div>
+                  <div style="height:1px; background:var(--gray-lt); margin:7px 0;"></div>
+                  <!-- 버튼 -->
+                  <div style="display:flex; gap:5px;">
+                    <div style="flex:1; text-align:center; padding:5px 4px; border:1px solid var(--gray-lt); border-radius:6px; font-size:8px; color:var(--gray-dk); cursor:pointer;">취소</div>
+                    <div style="flex:2; text-align:center; padding:5px 4px; background:var(--brand); border-radius:6px; font-size:8px; color:#fff; font-weight:700; cursor:pointer;">D&amp;O 강서사옥으로 변경</div>
+                  </div>
                 </div>
               </div>
             </div>
