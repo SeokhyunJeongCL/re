@@ -38,7 +38,7 @@
     color: var(--gray-dk);
     font-size: 15px;
     line-height: 1.5;
-    overflow-x: hidden;
+    overflow-x: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -874,17 +874,18 @@
   }
   .adm-badge {
     position: absolute;
-    background: var(--blue);
+    background: #1A1A2E;
     color: #fff;
     border-radius: 50%;
-    width: 22px; height: 22px;
+    width: 24px; height: 24px;
     font-size: 12px;
     font-weight: 800;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
     right: 6px;
     z-index: 5;
     line-height: 1;
+    border: 2px solid #fff;
   }
   /* 보조 이미지 (spec-zone 내 소형) */
   .spec-sub-img {
@@ -920,7 +921,7 @@
   .wf-item-num {
     display: inline-flex;
     width: 20px; height: 20px;
-    background: var(--brand);
+    background: #1A1A2E;
     color: #fff;
     border-radius: 50%;
     font-size: 11px;
@@ -934,13 +935,16 @@
   .wf-num-label {
     position: absolute;
     top: 2px; right: 2px;
-    background: var(--brand);
+    background: #1A1A2E;
     color: #fff;
     border-radius: 50%;
-    width: 28px; height: 28px;
-    font-size: 17px;
-    font-weight: 600;
+    width: 20px; height: 20px;
+    font-size: 11px;
+    font-weight: 800;
     display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    z-index: 5;
+    line-height: 1;
   }
   .wf-overlay-dialog {
     position: absolute;
@@ -1076,7 +1080,7 @@
             <td style="color:var(--blue); font-weight:700;">V1.1</td>
             <td>2026-04-08</td>
             <td>기획팀</td>
-            <td>현위치 자동팝업 추가 / 검색 미결과 시 기타문의 연결 / 상세요청탭 삭제·사진 최대 3장(카테고리 조건부) / '이전'→'수정할게요' 버튼명 변경 / 접수완료 화면 접수번호 미표시·처리문구 변경 / <b>만족도 평가 화면 신규 추가(UFMDS01895U)</b></td>
+            <td>현위치 자동팝업 추가 / 검색 미결과 시 기타문의 연결 / 상세요청탭 삭제·사진 최대 1장 / '이전'→'수정할게요' 버튼명 변경 / 접수완료 화면 접수번호 미표시·처리문구 변경 / <b>만족도 평가 화면 신규 추가(UFMDS01895U)</b></td>
           </tr>
           <tr style="background:#FFF5F5;">
             <td style="color:var(--brand); font-weight:700;">V1.2</td>
@@ -1247,7 +1251,7 @@
           <div>③ 이전 단계 복귀 시 입력값 유지 / 건물 변경 시 층 드롭다운 자동 초기화</div>
           <div>④ 카테고리별 상세 입력 UI 상이 (냉난방 버튼 3개 / 주차 필수 가이드 등 — P.21 참고)</div>
           <div style="color:var(--green); font-weight:600;">⑤ 처리 완료 후 만족도 평가 BS 자동 진입 (UFMDS01895U) — Push 알림 딥링크 연결</div>
-          <div style="color:var(--brand); font-weight:600;">⑥ 현위치 자동 팝업 / 기타문의 연결 / 상세요청탭 삭제 / 사진 최대 3장 / '수정할게요' / 접수번호 미표시 (확정 반영)</div>
+          <div style="color:var(--brand); font-weight:600;">⑥ 현위치 자동 팝업 / 기타문의 연결 / 상세요청탭 삭제 / 사진 최대 1장 / '수정할게요' / 접수번호 미표시</div>
         </div>
       </div>
     </div>
@@ -1513,7 +1517,7 @@
       <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block" style="position:relative;">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="../01.26년/샌디앱/기획/UIUX/불편신고/UFMDS01810U-11.png" alt="UFMDS01810U AS-IS 팝업">
+          <img class="mockup-img" src="불편신고/사용자화면/Image (41).jpg" alt="UFMDS01810U AS-IS">
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">TO-BE (개선안)</div>
@@ -1676,25 +1680,29 @@
         <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">건물 선택</div></div>
         <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-bs">Bottom Sheet</span></div></div>
         <div class="meta-row"><div class="meta-label">진입 조건</div><div class="meta-value" style="font-size:10px;">내정보 기본 건물 변경 필요 시 / 건물 검색 필드 탭 시</div></div>
-        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">3건</div></div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">2건</div></div>
       </div>
 
       <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="../01.26년/샌디앱/기획/UIUX/불편신고/UFMDS01820U.png" alt="UFMDS01820U AS-IS">
+          <img class="mockup-img" src="불편신고/사용자화면/Image (42).jpg" alt="UFMDS01820U AS-IS">
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">TO-BE (개선안 · 팀장 확정)</div>
+          <div class="mockup-label tobe">TO-BE (개선안)</div>
           <div class="wireframe" style="width:210px;">
             <div class="wf-body" style="padding:0;">
               <div style="background:rgba(0,0,0,0.4); flex:1; min-height:80px; display:flex; align-items:flex-end;">
                 <div style="background:#fff; border-radius:16px 16px 0 0; width:100%; padding:10px 10px 0;">
                   <div style="font-size:11px; font-weight:700; text-align:center; margin-bottom:6px; color:var(--navy);">건물 선택</div>
-                  <div class="wf-input" style="margin-bottom:4px; position:relative;">건물명 또는 장소를 입력해주세요 🔍 <span class="wf-num-label">②</span></div>
-                  <!-- 팀장 확정: 자동 팝업 -->
+                  <div style="position:relative; margin-bottom:4px;">
+                    <div class="wf-input">건물명 또는 장소를 입력해주세요 🔍</div>
+                    <div style="font-size:7px; color:#888; margin-top:2px; padding:3px 6px; background:#f9f9f9; border:1px dashed #ccc; border-radius:4px;">
+                      ① 검색 결과 없음 시: "검색 결과가 없습니다. 검색어를 수정해보세요" 안내 노출
+                    </div>
+                  </div>
                   <div style="background:var(--brand-lt); border:1.5px solid var(--brand); border-radius:8px; padding:6px 8px; margin-bottom:6px; position:relative;">
-                    <div style="font-size:7.5px; font-weight:700; color:var(--brand); margin-bottom:2px;">📍 현위치 기준 가까운 건물 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">③</span></div>
+                    <div style="font-size:7.5px; font-weight:700; color:var(--brand); margin-bottom:2px;">📍 현위치 기준 가까운 건물 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">②</span></div>
                     <div style="font-size:7px; color:var(--gray-md); margin-bottom:4px;">진입 시 자동 로드됩니다</div>
                     <div style="display:flex; align-items:center; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-lt);">
                       <div>
@@ -1736,24 +1744,17 @@
           </thead>
           <tbody>
             <tr>
-              <td>1</td>
+              <td>① 1</td>
               <td class="item-name">검색 결과 없음 처리</td>
               <td class="asis">빈 화면 (미정의)</td>
-              <td class="tobe">검색 결과 없을 때 "검색 결과가 없습니다" 안내 메시지 + 검색어 수정 유도</td>
+              <td class="tobe">검색 결과 없을 때 "검색 결과가 없습니다" 안내 메시지 + 검색어 수정 유도 (와이어프레임 참고)</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
-              <td>2</td>
-              <td class="item-name">검색 트리거 방식</td>
-              <td class="asis">입력 후 동작 방식 불명확</td>
-              <td class="tobe">실시간 검색(debounce 300ms) 방식으로 정의</td>
-              <td><span class="badge badge-p1">P1</span></td>
-            </tr>
-            <tr style="background:#FFF5F5;">
-              <td style="color:var(--brand); font-weight:700;">3 ★</td>
-              <td class="item-name" style="color:var(--brand);">현위치 기반 건물 자동 노출</td>
+              <td>② 2</td>
+              <td class="item-name">현위치 기반 건물 자동 노출</td>
               <td class="asis">검색 전 빈 화면 — "현위치로 근처 건물 보기" 링크 탭 시에만 동작</td>
-              <td class="tobe" style="color:#B71C1C; font-weight:600;"><b>[팀장 확정]</b> BS 진입 즉시 현위치 기반 가까운 건물 자동 팝업 노출 — 사용자 별도 액션 없이 주변 건물 바로 확인</td>
+              <td class="tobe">사용자 별도 액션 없이 1km 내 주변 건물 중 가까운 순서대로 최대 5개 자동 노출</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
           </tbody>
@@ -1821,7 +1822,7 @@
       <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block" style="position:relative;">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="../01.26년/샌디앱/기획/UIUX/불편신고/UFMDS01830U-1.png" alt="UFMDS01830U AS-IS">
+          <img class="mockup-img" src="불편신고/사용자화면/Image (35).jpg" alt="UFMDS01830U AS-IS">
           <!-- 삭제 예정 오버레이 -->
           <div style="position:absolute; bottom:76px; left:12px; right:12px; pointer-events:none;">
             <div style="border:2px dashed #B71C1C; border-radius:6px; padding:3px 6px; display:flex; align-items:center; justify-content:center; gap:5px; background:rgba(183,28,28,0.08);">
@@ -1833,13 +1834,12 @@
           <div class="mockup-label tobe">TO-BE (개선안)</div>
           <div class="wireframe" style="width:210px;">
             <div class="wf-header">← 접수하기</div>
-            <div class="wf-progress" style="position:relative;"><div class="wf-progress-fill" style="width:66%"></div><span class="wf-num-label" style="top:auto; bottom:-10px; right:2px; background:var(--blue);">③</span></div>
+            <div class="wf-progress" style="position:relative;"><div class="wf-progress-fill" style="width:66%"></div><span class="wf-num-label" style="top:auto; bottom:-10px; right:2px;">③</span></div>
             <div class="wf-body">
               <div class="wf-title">무엇을<br>도와드릴까요?</div>
               <div class="wf-input">키워드를 검색해보세요 🔍</div>
               <div style="display:flex; justify-content:space-between; align-items:center;">
                 <div style="font-size:8px; font-weight:700; color:var(--navy);">인기 키워드 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span></div>
-                <div style="font-size:8px; color:var(--blue); cursor:pointer;">카테고리 전체 보기 › <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">②</span></div>
               </div>
               <div class="wf-chip-grid">
                 <div class="wf-chip">문이 고장났어요</div>
@@ -1854,7 +1854,7 @@
                 <div class="wf-chip">에어컨이 고장났어요</div>
               </div>
             </div>
-            <div class="wf-btn" style="background:var(--gray-lt); color:var(--gray-md);">카테고리 전체 보기</div>
+            <div class="wf-btn" style="background:var(--brand); color:#fff; position:relative;">카테고리 전체 보기 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; margin-left:3px;">②</span> ↓</div>
           </div>
         </div>
       </div>
@@ -1878,14 +1878,14 @@
               <td>1</td>
               <td class="item-name">태그 칩 레이아웃</td>
               <td class="asis">칩 길이 따라 불규칙 래핑 배치</td>
-              <td class="tobe">2열 고정 그리드로 정렬하여 가독성·일관성 향상</td>
+              <td class="tobe">태그 칩 레이아웃 방향 검토 필요 — 칩 길이 통일(고정 그리드) vs 내용 기반 자연 래핑(불규칙) 중 어느 방식이 더 적합한지 <b>디자이너 판단 필요</b></td>
               <td><span class="badge badge-p2">P2</span></td>
             </tr>
             <tr>
               <td>2</td>
               <td class="item-name">카테고리 전체 보기 위치</td>
               <td class="asis">태그 칩 스크롤 후 하단에 위치</td>
-              <td class="tobe">검색창 바로 아래 고정 노출하여 접근성 향상</td>
+              <td class="tobe">카테고리 전체 보기는 하단 버튼(CTA) 위치가 적합 — 화면 하단 고정 배치 유지</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
@@ -1961,16 +1961,11 @@
         <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">3건</div></div>
       </div>
 
-      <div class="mockup-zone" style="width:590px; gap:7px;">
-        <!-- AS-IS ① Bottom Sheet 방식 -->
+      <div class="mockup-zone" style="width:460px; gap:7px;">
+        <!-- AS-IS Full Screen 방식 -->
         <div class="mockup-block">
-          <div class="mockup-label">AS-IS ① BS 방식</div>
-          <img class="mockup-img" style="height:390px;" src="../01.26년/샌디앱/기획/UIUX/불편신고/UFMDS01830U-3.png" alt="카테고리 전체 BS 방식">
-        </div>
-        <!-- AS-IS ② Full Screen 방식 -->
-        <div class="mockup-block">
-          <div class="mockup-label">AS-IS ② Full Screen</div>
-          <img class="mockup-img" style="height:390px;" src="./불편신고/사용자화면/Image (1).jpg" alt="카테고리 전체 Full Screen">
+          <div class="mockup-label">AS-IS (현행)</div>
+          <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/Image (1).jpg" alt="카테고리 전체 Full Screen">
         </div>
         <!-- TO-BE wireframe -->
         <div class="mockup-block">
@@ -2023,7 +2018,7 @@
         <div class="spec-asis">
           <div class="spec-asis-title">현황 (AS-IS)</div>
           <ul>
-            <li>두 가지 상이한 표시 방식 혼재: Bottom Sheet(UFMDS01830U-3) vs Full Screen(Image 1)</li>
+            <li>Bottom Sheet 방식의 변형 사례가 별도 슬라이드(이전 페이지 하단)에 참고용으로 분리 표시됨. 현행 Full Screen 방식을 개선 기준으로 채택</li>
             <li>칩 자유 배치 — 가로 공간에 따라 불규칙 래핑, 카테고리 선택 화면(6p)과 레이아웃 불일치</li>
             <li>전체 보기 진입 후 별도 검색 불가, 상위 화면 검색어 연동 없음</li>
             <li>"위험신고" 등 서비스 성격이 다른 항목 동일 목록에 혼재</li>
@@ -2045,7 +2040,7 @@
               <td>2</td>
               <td class="item-name">칩 레이아웃</td>
               <td class="asis">카테고리마다 칩 크기·줄수 불규칙 자유 배치</td>
-              <td class="tobe">2열 그리드로 통일, UFMDS01830U와 동일 레이아웃 일관 적용</td>
+              <td class="tobe">태그 칩 레이아웃 방향은 <b>디자이너 판단 필요</b> — 통일(고정 2열) vs 내용 기반 불규칙 배치 중 선택</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
@@ -2055,11 +2050,11 @@
               <td class="tobe">상단 검색창 유지, 상위 화면 검색어 자동 채움 또는 독립 검색 제공</td>
               <td><span class="badge badge-p2">P2</span></td>
             </tr>
-            <tr style="background:#FFF5F5;">
-              <td style="color:var(--brand); font-weight:700;">4 ★</td>
-              <td class="item-name" style="color:var(--brand);">검색 결과 없음 → 기타문의 연결</td>
+            <tr>
+              <td>4</td>
+              <td class="item-name">검색 결과 없음 → 기타문의 연결</td>
               <td class="asis">검색 결과 없음 시 빈 화면 또는 기타 문의·FAQ 옵션 노출 (일관성 없음)</td>
-              <td class="tobe" style="color:#B71C1C; font-weight:600;"><b>[팀장 확정]</b> 검색 결과 없을 때 "기타문의" 화면으로 자동 연결 — 별도 선택 없이 바로 기타문의 접수 플로우로 이동</td>
+              <td class="tobe">검색 결과 없을 때 "기타문의" 화면으로 자동 연결 — 별도 선택 없이 바로 기타문의 접수 플로우로 이동</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
           </tbody>
@@ -2127,7 +2122,7 @@
       <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="../01.26년/샌디앱/기획/UIUX/불편신고/UFMDS01840U.png" alt="UFMDS01840U AS-IS">
+          <img class="mockup-img" src="불편신고/사용자화면/Image (17).jpg" alt="UFMDS01840U AS-IS">
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">TO-BE (개선안)</div>
@@ -2138,30 +2133,24 @@
               <div style="font-size:8px; color:var(--brand); font-weight:700;">문이 고장났어요</div>
               <div class="wf-title" style="font-size:11px;">도와드리기 위해<br>필요한 정보가 있어요</div>
               <div class="wf-section">상세 장소 *</div>
-              <div class="wf-input" style="position:relative;">예: 703호 입구, 3층 복도 끝 <span class="wf-num-label">③</span></div>
-              <!-- ② 상세요청 탭 삭제 확정 -->
-              <div style="border:1.5px dashed #B71C1C; border-radius:6px; padding:3px 6px; margin-bottom:2px; display:flex; align-items:center; gap:4px; background:rgba(183,28,28,0.05);">
-                <span style="font-size:7.5px; font-weight:700; color:#B71C1C;">② 삭제 확정 — 상세요청 탭(신규/변경·고장/장애) 제거</span>
-              </div>
+              <div class="wf-input" style="position:relative;">예: 703호 입구, 3층 복도 끝 <span class="wf-num-label">②</span></div>
               <div class="wf-section">상세 내용 *</div>
               <div class="wf-textarea" style="position:relative;">
                 상세 내용을 입력해주세요
-                <div class="wf-char-count">0 / 200자 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:var(--blue);">⑥</span></div>
+                <div class="wf-char-count">0 / 200자 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">⑤</span></div>
               </div>
-              <div class="wf-section">이미지 첨부 (최대 3장) <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span> <span style="font-size:7px; color:var(--brand); font-weight:700;">★서버 로직 확인 필요</span></div>
+              <div class="wf-section">이미지 첨부 (최대 1장) <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span></div>
               <div class="wf-img-row">
                 <div class="wf-img-thumb">📷</div>
-                <div class="wf-img-thumb" style="background:var(--gray-lt); opacity:0.5;">📷</div>
-                <div class="wf-img-thumb" style="background:var(--gray-lt); opacity:0.5;">📷</div>
                 <div class="wf-img-add">+</div>
               </div>
               <div class="wf-section">일정 여부</div>
               <div class="wf-row">
                 <div class="wf-tab sel">즉시 신청</div>
-                <div class="wf-tab" style="position:relative;">예약 <span class="wf-num-label">⑤</span></div>
+                <div class="wf-tab" style="position:relative;">예약 <span class="wf-num-label">④</span></div>
               </div>
             </div>
-            <div class="wf-btn disabled" style="position:relative;">확인 (필수항목 입력 후 활성화) <span class="wf-num-label" style="background:var(--gray-md);">④</span></div>
+            <div class="wf-btn disabled" style="position:relative;">확인 (필수항목 입력 후 활성화) <span class="wf-num-label">③</span></div>
           </div>
         </div>
       </div>
@@ -2181,43 +2170,36 @@
             <tr><th>#</th><th>항목</th><th>현황</th><th>개선 방향</th><th>우선순위</th></tr>
           </thead>
           <tbody>
-            <tr style="background:#FFF5F5;">
-              <td style="color:var(--brand); font-weight:700;">1 ★</td>
-              <td class="item-name" style="color:var(--brand);">이미지 첨부 매수 확대</td>
+            <tr>
+              <td>1</td>
+              <td class="item-name">이미지 첨부 매수</td>
               <td class="asis">1장만 첨부 가능</td>
-              <td class="tobe" style="color:#B71C1C; font-weight:600;"><b>[조건부 확정]</b> 최대 3장으로 확대 — 서버/업로드 API 로직 확인 후 최종 결정. 이미지 압축(resizing) 병행 필요. 버튼 옆 "최대 3장" 레이블 사전 노출</td>
+              <td class="tobe">이미지 첨부는 최대 1장. 향후 확대 시 서버/업로드 API 로직 확인 필요</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
-            <tr style="background:#FFEBEE;">
-              <td style="color:#B71C1C; font-weight:700;">2 ✕</td>
-              <td class="item-name" style="color:#B71C1C;">상세 요청 타입 탭</td>
-              <td class="asis">신규/변경 · 고장/장애 탭 모든 카테고리에 동일 노출</td>
-              <td class="tobe" style="color:#B71C1C; font-weight:700;"><b>[팀장 확정 삭제]</b> 해당 탭 UI 전체 제거 — 사용자가 카테고리·상세내용으로 요청 유형을 충분히 전달 가능</td>
-              <td><span class="badge" style="background:#B71C1C; color:#fff; padding:2px 6px; border-radius:4px; font-size:10px;">삭제</span></td>
-            </tr>
             <tr>
-              <td>3</td>
+              <td>2</td>
               <td class="item-name">상세 장소 Placeholder</td>
               <td class="asis">"정확한 위치를 입력해주세요"</td>
               <td class="tobe">예시 텍스트 추가: "예: 703호 입구, 3층 복도 끝"</td>
               <td><span class="badge badge-p3">P3</span></td>
             </tr>
             <tr>
-              <td>4</td>
+              <td>3</td>
               <td class="item-name">확인 버튼 동작</td>
               <td class="asis">필수값 미입력 시 버튼 자체 미노출</td>
               <td class="tobe">항상 노출 + 미입력 시 disabled 처리, 탭 시 미입력 필드 강조 표시</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
-              <td>5</td>
+              <td>4</td>
               <td class="item-name">예약 날짜 선택 UI</td>
               <td class="asis">날짜·시간 텍스트만 표시</td>
               <td class="tobe">Native Date/Time Picker 사용 방식 정의. 선택 가능 범위(최소: 당일+1, 최대: 30일) 명세</td>
               <td><span class="badge badge-p2">P2</span></td>
             </tr>
             <tr>
-              <td>6</td>
+              <td>5</td>
               <td class="item-name">글자수 카운터</td>
               <td class="asis">미정의</td>
               <td class="tobe">textarea 우측 하단에 "0 / 200자" 형식으로 입력 가능 글자수 표시</td>
@@ -2232,14 +2214,14 @@
           </div>
           <div style="background:#EEF2FA; border-radius:6px; padding:7px 10px; border-left:2px solid var(--blue);">
             <div style="font-size:9.5px; font-weight:700; color:var(--blue); margin-bottom:3px;">⚙️ 운영자 Tip</div>
-            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">이미지 포함 신고 건은 담당자의 현장 파악 시간을 단축시킵니다. 사진 3장 확대 적용 시 서버 업로드 최대 용량(권장 5MB/장)과 API 처리 방식을 반드시 개발팀과 사전 확인하세요.</div>
+            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">이미지 포함 신고 건은 담당자의 현장 파악 시간을 단축시킵니다. 이미지 용량 제한(권장 5MB/장) 및 API 처리 방식을 개발팀과 사전 확인하세요.</div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="slide-footer">
-    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01840U</b> <span class="sep">›</span> 상세 정보 입력 <span style="margin-left:8px; color:var(--brand); font-weight:700;">★팀장 피드백 반영</span></div>
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01840U</b> <span class="sep">›</span> 상세 정보 입력</div>
     <div class="footer-right">SD2026-002 · P.8</div>
   </div>
 </div>
@@ -2283,7 +2265,7 @@
       <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="../01.26년/샌디앱/기획/UIUX/불편신고/UFMDS01850U.png" alt="UFMDS01850U AS-IS">
+          <img class="mockup-img" src="불편신고/사용자화면/Image (26).jpg" alt="UFMDS01850U AS-IS">
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">TO-BE (개선안)</div>
@@ -2292,7 +2274,7 @@
               <div style="background:rgba(0,0,0,0.4); flex:1; min-height:160px; display:flex; align-items:flex-end;">
                 <div style="background:#fff; border-radius:16px 16px 0 0; width:100%; padding:14px 14px 0;">
                   <div style="font-size:12px; font-weight:700; text-align:center; margin-bottom:4px; color:var(--navy);">이미지 첨부</div>
-                  <div style="font-size:8.5px; color:var(--gray-md); text-align:center; margin-bottom:12px;">최대 3장 첨부 가능 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span></div>
+                  <div style="font-size:8.5px; color:var(--gray-md); text-align:center; margin-bottom:12px;">최대 1장 첨부 가능 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">①</span></div>
                   <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
                     <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
                       <div style="width:40px; height:40px; border:1.5px solid var(--gray-lt); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:20px;">📷</div>
@@ -2330,7 +2312,7 @@
               <td>1</td>
               <td class="item-name">이미지 제한 사전 안내</td>
               <td class="asis">1장 초과 시도 후 제한 안내 표시 (사후 고지)</td>
-              <td class="tobe">Bottom Sheet 상단에 "최대 N장 첨부 가능" 레이블 상시 노출하여 사전 안내</td>
+              <td class="tobe">Bottom Sheet 상단에 "최대 1장 첨부 가능" 레이블 상시 노출하여 사전 안내</td>
               <td><span class="badge badge-p2">P2</span></td>
             </tr>
           </tbody>
@@ -2338,12 +2320,12 @@
 
         <div style="margin-top: 8px; background: #FFF8E1; border-radius:8px; padding:10px 14px; border-left:3px solid var(--yellow);">
           <div style="font-size:10px; font-weight:700; color:#5D4037; margin-bottom:4px;">연계 개선 사항</div>
-          <div style="font-size:10px; color:#6D4C41;">이미지 첨부 제한 안내 문구를 UFMDS01840U 이미지 업로드 영역에도 동일하게 표기 ("최대 3장" 레이블 일관 노출)</div>
+          <div style="font-size:10px; color:#6D4C41;">이미지 첨부 제한 안내 문구를 UFMDS01840U 이미지 업로드 영역에도 동일하게 표기 ("최대 1장" 레이블 일관 노출)</div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:6px;">
           <div style="background:#FDECF5; border-radius:6px; padding:7px 10px; border-left:2px solid var(--brand);">
             <div style="font-size:9.5px; font-weight:700; color:var(--brand); margin-bottom:3px;">👤 사용자 Tip</div>
-            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">사진은 최대 3장까지 첨부 가능합니다. 문제 상황을 가장 잘 보여주는 사진을 선택해 주세요. 사진이 많을수록 처리 담당자가 상황을 더 빠르게 파악할 수 있습니다.</div>
+            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">사진은 최대 1장 첨부 가능합니다. 문제 상황을 가장 잘 보여주는 사진을 선택해 주세요.</div>
           </div>
           <div style="background:#EEF2FA; border-radius:6px; padding:7px 10px; border-left:2px solid var(--blue);">
             <div style="font-size:9.5px; font-weight:700; color:var(--blue); margin-bottom:3px;">⚙️ 운영자 Tip</div>
@@ -2395,13 +2377,13 @@
         <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">4건</div></div>
       </div>
 
-      <div class="mockup-zone" style="width:620px;">
+      <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" style="height:460px;" src="../01.26년/샌디앱/기획/UIUX/불편신고/UFMDS01880U.png" alt="UFMDS01880U AS-IS">
+          <img class="mockup-img" style="height:460px;" src="불편신고/사용자화면/Image (27).jpg" alt="UFMDS01880U AS-IS">
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">TO-BE ① 접수 확인</div>
+          <div class="mockup-label tobe">TO-BE — 접수 확인</div>
           <div class="wireframe" style="width:185px; height:460px;">
             <div class="wf-body" style="padding:0;">
               <div style="background:rgba(0,0,0,0.3); flex:0 0 50px;"></div>
@@ -2413,7 +2395,7 @@
                 <div style="font-size:9px; font-weight:700; color:var(--navy);">접수 정보를 확인해주세요</div>
                 <div style="height:1px; background:var(--gray-lt);"></div>
                 <div class="wf-summary-row"><span class="wf-summary-label">접수 위치</span><span class="wf-summary-value" style="font-size:7.5px;">D&amp;O 강서사옥 7F</span></div>
-                <div class="wf-summary-row"><span class="wf-summary-label">접수 분류</span><span><span class="wf-tag" style="position:relative;">설비고장 <span class="wf-num-label" style="top:-2px; right:-2px; background:var(--blue);">②</span></span></span></div>
+                <div class="wf-summary-row"><span class="wf-summary-label">접수 분류</span><span><span class="wf-tag" style="position:relative;">설비고장 <span class="wf-num-label" style="top:-2px; right:-2px;">②</span></span></span></div>
                 <div class="wf-summary-row"><span class="wf-summary-label">처리 희망</span><span class="wf-summary-value" style="font-size:7.5px;">최대한 빠르게</span></div>
                 <div class="wf-summary-row">
                   <span class="wf-summary-label">첨부</span>
@@ -2426,37 +2408,8 @@
                 <div style="height:1px; background:var(--gray-lt);"></div>
               </div>
               <div style="display:flex; gap:4px; background:#fff; padding:0 10px 7px; margin-top:auto;">
-                <div class="wf-btn-outline" style="font-size:8px; padding:5px; position:relative;">수정할게요 <span class="wf-num-label" style="position:absolute; top:-8px; right:-8px; background:var(--brand); font-size:8px; width:16px; height:16px;">★</span></div>
+                <div class="wf-btn-outline" style="font-size:8px; padding:5px; position:relative;">수정할게요 <span class="wf-num-label" style="position:absolute; top:-8px; right:-8px; font-size:8px; width:16px; height:16px;">★</span></div>
                 <div class="wf-btn-primary" style="font-size:8px; padding:5px;">접수할게요</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mockup-block">
-          <div class="mockup-label tobe">TO-BE ③ 취소 다이얼로그</div>
-          <div class="wireframe" style="width:185px; height:460px; position:relative;">
-            <div class="wf-body" style="padding:0; position:relative;">
-              <div style="background:rgba(0,0,0,0.3); flex:0 0 50px;"></div>
-              <div style="background:#fff; border-radius:16px 16px 0 0; flex:1; padding:10px 10px 5px; display:flex; flex-direction:column; gap:5px; overflow:hidden; opacity:0.35;">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <div style="font-size:10px; font-weight:700; color:var(--navy);">접수 확인</div>
-                  <div style="font-size:10px; color:var(--gray-md);">✕</div>
-                </div>
-                <div style="font-size:9px; font-weight:700; color:var(--navy);">접수 정보를 확인해주세요</div>
-                <div style="height:1px; background:var(--gray-lt);"></div>
-                <div class="wf-summary-row"><span class="wf-summary-label">접수 위치</span><span class="wf-summary-value" style="font-size:7.5px;">D&amp;O 강서사옥 7F</span></div>
-                <div class="wf-summary-row"><span class="wf-summary-label">접수 분류</span><span><span class="wf-tag">설비고장</span></span></div>
-              </div>
-            </div>
-            <!-- 취소 확인 다이얼로그 오버레이 -->
-            <div class="wf-overlay-dialog">
-              <div class="wf-dialog-box">
-                <div class="wf-dialog-title">접수를<br>취소하시겠습니까?</div>
-                <div class="wf-dialog-desc">작성 중인 내용이<br>모두 삭제됩니다.</div>
-                <div class="wf-dialog-btns">
-                  <div class="wf-dialog-btn-cancel">계속 작성</div>
-                  <div class="wf-dialog-btn-confirm">취소하기</div>
-                </div>
               </div>
             </div>
           </div>
@@ -2500,11 +2453,11 @@
               <td class="tobe">X 탭 시 "접수를 취소하시겠습니까?" 확인 다이얼로그 추가. 홈 이탈 vs 취소 동선 구분</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
-            <tr style="background:#FFF5F5;">
-              <td style="color:var(--brand); font-weight:700;">4 ★</td>
-              <td class="item-name" style="color:var(--brand);">버튼 레이블 변경</td>
+            <tr>
+              <td>4</td>
+              <td class="item-name">버튼 레이블 변경</td>
               <td class="asis">'이전' 버튼 — 단순 뒤로가기 느낌, 수정 의도가 모호</td>
-              <td class="tobe" style="color:#B71C1C; font-weight:600;"><b>[팀장 확정]</b> '이전' → '수정할게요'로 텍스트 변경. 사용자가 수정 목적으로 돌아감을 명확히 인지 가능</td>
+              <td class="tobe">'이전' → '수정할게요'로 텍스트 변경. 사용자가 수정 목적으로 돌아감을 명확히 인지 가능</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
           </tbody>
@@ -2523,7 +2476,7 @@
     </div>
   </div>
   <div class="slide-footer">
-    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01880U</b> <span class="sep">›</span> 접수 확인 <span style="margin-left:8px; color:var(--brand); font-weight:700;">★팀장 피드백 반영</span></div>
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01880U</b> <span class="sep">›</span> 접수 확인</div>
     <div class="footer-right">SD2026-002 · P.10</div>
   </div>
 </div>
@@ -2567,13 +2520,13 @@
       <div class="mockup-zone" style="width:460px;">
         <div class="mockup-block">
           <div class="mockup-label">AS-IS (현행)</div>
-          <img class="mockup-img" src="../01.26년/샌디앱/기획/UIUX/불편신고/UFMDS01890U.png" alt="UFMDS01890U AS-IS">
+          <img class="mockup-img" src="불편신고/사용자화면/Image (28).jpg" alt="UFMDS01890U AS-IS">
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">TO-BE (개선안)</div>
           <div class="wireframe" style="width:210px;">
             <div class="wf-header" style="display:flex; justify-content:space-between; align-items:center;">
-              <span>← 히스토리 화면 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:#fff; color:var(--brand);">⑤</span></span>
+              <span>← 접수 내역 확인 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:#fff; color:var(--brand);">⑤</span></span>
             </div>
             <div class="wf-body" style="align-items:center; text-align:center;">
               <div style="font-size:11px; font-weight:700; color:var(--navy); margin-top:4px;">문이 고장났어요</div>
@@ -2582,16 +2535,14 @@
               <div style="font-size:14px; font-weight:800; color:var(--navy); margin-bottom:4px;">신청 완료</div>
               <!-- ③ 접수번호 미표시 확정 -->
               <div style="font-size:8px; color:var(--gray-md); text-decoration:line-through; margin-top:2px; opacity:0.4;">접수번호 표시 — 미표시로 확정</div>
-              <div style="font-size:8.5px; font-weight:700; color:var(--navy); margin-top:4px; background:var(--gray-bg); border-radius:6px; padding:4px 8px;">조속히 처리하겠습니다. <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:var(--brand);">④</span></div>
+              <div style="font-size:8.5px; font-weight:700; color:var(--navy); margin-top:4px; background:var(--gray-bg); border-radius:6px; padding:4px 8px;">조속히 처리하겠습니다. <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">④</span></div>
               <div class="wf-info-box" style="text-align:left; margin-top:4px; font-size:8px; position:relative;">
-                업무시간(18시) 이후 신청건은 익일 처리됩니다<br>
-                <span style="font-size:7.5px; color:var(--gray-md);">※ 업무시간 외에만 표시</span>
+                업무시간(18시) 이후 신청건은 익일 처리됩니다
                 <span class="wf-num-label">①</span>
               </div>
               <div style="margin-top: auto; width:100%; display:flex; flex-direction:column; gap:4px;">
-                <div class="wf-btn" style="border-radius:8px; padding:7px; font-size:9.5px; position:relative;">홈으로 돌아가기 <span class="wf-num-label" style="background:#fff; color:var(--brand);">②</span></div>
+                <div class="wf-btn" style="border-radius:8px; padding:7px; font-size:9.5px; position:relative;">홈으로 연결하기 <span class="wf-num-label" style="background:#1A1A2E; color:#fff;">②</span></div>
                 <div style="display:flex; gap:4px;">
-                  <div style="flex:1; border:1px solid var(--gray-lt); border-radius:8px; padding:5px; text-align:center; font-size:8px; color:var(--gray-dk);">콜센터 연결</div>
                   <div style="flex:1; border:1px solid var(--gray-lt); border-radius:8px; padding:5px; text-align:center; font-size:8px; color:var(--gray-dk);">접수 내역 확인</div>
                 </div>
               </div>
@@ -2618,37 +2569,37 @@
           <tbody>
             <tr>
               <td>1</td>
-              <td class="item-name">업무시간 외 안내 조건부 노출</td>
+              <td class="item-name">업무시간 외 안내 노출</td>
               <td class="asis">업무시간 내·외 모두 항상 노출</td>
-              <td class="tobe">현재 시각 ≥ 18:00일 때만 조건부 노출. 업무시간 내 접수 시 미표시</td>
+              <td class="tobe">항시 노출 — 업무시간 내외 구분 없이 표시</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
               <td>2</td>
               <td class="item-name">홈 이동 CTA</td>
               <td class="asis">없음</td>
-              <td class="tobe">"홈으로 돌아가기" 주 버튼 추가. 콜센터·접수 내역은 보조 버튼으로 배치</td>
+              <td class="tobe">"홈으로 연결하기" 주 버튼 추가. 콜센터 연결 버튼 삭제, 홈으로 연결하기 + 접수 내역 확인 2버튼 배치</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
-            <tr style="background:#FFEBEE;">
-              <td style="color:#B71C1C; font-weight:700;">3 ✕</td>
-              <td class="item-name" style="color:#B71C1C;">접수번호 표시</td>
+            <tr>
+              <td>3</td>
+              <td class="item-name">접수번호 표시</td>
               <td class="asis">접수번호 미표시</td>
-              <td class="tobe" style="color:#B71C1C; font-weight:700;"><b>[팀장 확정 미표시]</b> 완료 화면에 접수번호 노출 안 함으로 결정</td>
-              <td><span class="badge" style="background:#B71C1C; color:#fff; padding:2px 6px; border-radius:4px; font-size:10px;">미표시</span></td>
+              <td class="tobe">미표시로 결정 — 완료 화면에 접수번호 노출 안 함</td>
+              <td><span class="badge badge-p2">P2</span></td>
             </tr>
-            <tr style="background:#FFF5F5;">
-              <td style="color:var(--brand); font-weight:700;">4 ★</td>
-              <td class="item-name" style="color:var(--brand);">처리 안내 문구</td>
+            <tr>
+              <td>4</td>
+              <td class="item-name">처리 안내 문구</td>
               <td class="asis">처리 예상 시간 없음</td>
-              <td class="tobe" style="color:#B71C1C; font-weight:600;"><b>[팀장 확정]</b> 고정 문구 표시: "조속히 처리하겠습니다." — 카테고리별 시간 편차로 구체적 시간 대신 처리 의지 전달</td>
+              <td class="tobe">고정 문구 표시: "조속히 처리하겠습니다." — 카테고리별 시간 편차로 구체적 시간 대신 처리 의지 전달</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
               <td>5</td>
               <td class="item-name">뒤로가기 동작 정의</td>
               <td class="asis">미정의</td>
-              <td class="tobe">완료 화면에서 Back 탭 시 히스토리(접수 내역) 화면으로 이동. 접수 플로우 스택을 초기화하여 접수 재진행 방지</td>
+              <td class="tobe">완료 화면에서 Back 탭 시 접수 내역 확인 화면으로 이동. 접수 플로우 스택을 초기화하여 접수 재진행 방지</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
           </tbody>
@@ -2667,7 +2618,7 @@
     </div>
   </div>
   <div class="slide-footer">
-    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01890U</b> <span class="sep">›</span> 접수 완료 <span style="margin-left:8px; color:var(--brand); font-weight:700;">★팀장 피드백 반영</span></div>
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01890U</b> <span class="sep">›</span> 접수 완료</div>
     <div class="footer-right">SD2026-002 · P.11</div>
   </div>
 </div>
@@ -2717,16 +2668,11 @@
       </div>
 
       <!-- Mockup Zone: AS-IS(실사용 캡처) + TO-BE wireframe -->
-      <div class="mockup-zone" style="width:580px; gap:10px;">
-        <!-- AS-IS: 히스토리 상세 (처리결과 상세) -->
-        <div class="mockup-block">
-          <div class="mockup-label">현행 — 히스토리 상세 (처리결과 상세)</div>
-          <img class="mockup-img" style="height:460px;" src="./불편신고/사용자화면/Image (2).jpg" alt="히스토리 상세 처리결과 상세">
-        </div>
+      <div class="mockup-zone" style="width:460px; gap:10px;">
         <!-- AS-IS: 히스토리 상세 (만족도 평가 버튼 포함 화면) -->
         <div class="mockup-block">
-          <div class="mockup-label">현행 — 히스토리 상세 (만족도 평가 버튼)</div>
-          <img class="mockup-img" style="height:460px;" src="./불편신고/사용자화면/Image (1).jpg" alt="히스토리 상세 — 처리결과 + 만족도 평가 버튼">
+          <div class="mockup-label">현행 참고</div>
+          <img class="mockup-img" style="height:460px;" src="불편신고/사용자화면/Image (1).jpg" alt="히스토리 상세 — 처리결과 + 만족도 평가 버튼">
         </div>
         <!-- TO-BE wireframe -->
         <div class="mockup-block">
@@ -2749,22 +2695,22 @@
                   <span style="font-size:20px; color:var(--gray-lt);">★</span>
                   <span class="wf-num-label" style="position:absolute; top:-4px; right:-4px;">①</span>
                 </div>
-                <div style="font-size:8px; color:var(--gray-md); text-align:center;">3점 선택 시</div>
-                <!-- 낮은 점수 시 추가 질문 -->
-                <div style="background:#FFF8E1; border-radius:6px; padding:5px 7px; border:1px solid var(--yellow); position:relative;">
-                  <div style="font-size:7.5px; font-weight:700; color:#7B6000; margin-bottom:3px;">어떤 점이 아쉬우셨나요? <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:var(--yellow); color:#333; font-size:9px;">②</span></div>
+                <!-- 긍정적 피드백 태그 -->
+                <div style="background:#E8F5E9; border-radius:6px; padding:5px 7px; border:1px solid var(--green); position:relative;">
+                  <div style="font-size:7.5px; font-weight:700; color:#1B5E20; margin-bottom:3px;">어떤 점이 좋으셨나요? <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">②</span></div>
                   <div style="display:flex; flex-wrap:wrap; gap:3px;">
-                    <div style="background:#fff; border:1px solid #DDD; border-radius:10px; padding:2px 5px; font-size:7px;">처리가 느렸어요</div>
-                    <div style="background:#fff; border:1px solid #DDD; border-radius:10px; padding:2px 5px; font-size:7px;">피드백이 없었어요</div>
-                    <div style="background:#fff; border:1px solid #DDD; border-radius:10px; padding:2px 5px; font-size:7px;">해결이 안됐어요</div>
+                    <div style="background:#fff; border:1px solid #DDD; border-radius:10px; padding:2px 5px; font-size:7px;">신속하게 처리됐어요</div>
+                    <div style="background:#fff; border:1px solid #DDD; border-radius:10px; padding:2px 5px; font-size:7px;">친절한 안내가 좋았어요</div>
+                    <div style="background:#fff; border:1px solid #DDD; border-radius:10px; padding:2px 5px; font-size:7px;">완벽하게 해결됐어요</div>
+                    <div style="background:#fff; border:1px solid #DDD; border-radius:10px; padding:2px 5px; font-size:7px;">기대 이상이었어요</div>
                   </div>
                 </div>
                 <div class="wf-textarea" style="min-height:40px; font-size:7.5px; position:relative;">
                   이용 후기를 남겨주세요
-                  <div class="wf-char-count">0 / 200자 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex; background:var(--blue); font-size:9px;">③</span></div>
+                  <div class="wf-char-count">0 / 200자 <span class="wf-num-label" style="position:relative; top:auto; right:auto; display:inline-flex;">③</span></div>
                 </div>
                 <div style="font-size:7.5px; color:var(--gray-md); text-align:center; padding:2px 0;">※ 평가 내용은 서비스 개선에 활용됩니다</div>
-                <div class="wf-btn" style="margin-top:auto; padding:7px; font-size:9.5px; position:relative;">작성 완료 <span class="wf-num-label" style="position:absolute; top:-8px; right:4px; background:var(--gray-lt); color:var(--gray-md);">④</span></div>
+                <div class="wf-btn" style="margin-top:auto; padding:7px; font-size:9.5px; position:relative;">작성 완료 <span class="wf-num-label" style="position:absolute; top:-8px; right:4px;">④</span></div>
               </div>
             </div>
           </div>
@@ -2791,14 +2737,14 @@
               <td>1</td>
               <td class="item-name">별점 선택 UX</td>
               <td class="asis">별 5개 탭으로 선택 — 현재 선택된 점수 피드백 없음</td>
-              <td class="tobe">별점 선택 시 텍스트 피드백 추가 (1점: "많이 아쉬웠어요" ~ 5점: "아주 만족해요") + 별 색상 채움 애니메이션</td>
+              <td class="tobe">별점 탭 시 별 색상 채움 애니메이션 적용. 텍스트 피드백(1점: 많이 아쉬웠어요 등)은 불필요 — 삭제</td>
               <td><span class="badge badge-p2">P2</span></td>
             </tr>
             <tr>
               <td>2</td>
-              <td class="item-name">낮은 점수 사유 수집</td>
+              <td class="item-name">피드백 태그 칩</td>
               <td class="asis">점수 관계없이 동일한 자유 텍스트만 제공</td>
-              <td class="tobe">1~3점 선택 시 사유 태그 칩 추가 노출 (처리 느림 / 피드백 없음 / 해결 안됨 / 기타) — 운영자 개선 지표 수집</td>
+              <td class="tobe">긍정적 피드백 태그 칩 4~5개 노출 (신속 처리 / 친절한 안내 / 완벽한 해결 / 기대 이상 / 기타). 별점에 관계없이 긍정적 평가 옵션 제공</td>
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
@@ -2816,7 +2762,7 @@
               <td><span class="badge badge-p1">P1</span></td>
             </tr>
             <tr>
-              <td>5</td>
+              <td>5 <span style="font-size:9px; color:var(--blue);">[개발]</span></td>
               <td class="item-name">알림 딥링크 연결</td>
               <td class="asis">처리 완료 알림 탭 시 히스토리 상세로 이동 — 평가 BS 자동 오픈 없음</td>
               <td class="tobe">처리 완료 알림 탭 → 히스토리 상세 진입 → 만족도 평가 BS 자동 오픈 딥링크 구현</td>
@@ -2827,11 +2773,11 @@
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:6px;">
           <div style="background:#FDECF5; border-radius:6px; padding:7px 10px; border-left:2px solid var(--brand);">
             <div style="font-size:9.5px; font-weight:700; color:var(--brand); margin-bottom:3px;">👤 사용자 Tip</div>
-            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">평가는 선택 사항입니다. 낮은 점수 선택 시 이유를 남기면 서비스 개선에 직접 반영됩니다. 평가 내용은 담당자에게 전달되어 처리 품질 향상에 활용됩니다.</div>
+            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">처리 완료 후 만족도를 남겨주세요. 여러분의 긍정적인 피드백이 담당자에게 큰 힘이 됩니다. 평가는 서비스 개선에 직접 반영됩니다.</div>
           </div>
           <div style="background:#EEF2FA; border-radius:6px; padding:7px 10px; border-left:2px solid var(--blue);">
             <div style="font-size:9.5px; font-weight:700; color:var(--blue); margin-bottom:3px;">⚙️ 운영자 Tip</div>
-            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">낮은 점수(1~3점) 및 부정 사유 태그는 서비스 품질 대시보드에 수집하세요. 카테고리별·담당자별 만족도 추이를 분석하면 처리 프로세스 개선에 활용할 수 있습니다.</div>
+            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">만족도 평가 결과를 카테고리별·담당자별로 집계하여 우수 처리 사례를 공유하세요. 긍정 피드백은 동기부여로 활용할 수 있습니다.</div>
           </div>
         </div>
       </div>
@@ -2904,7 +2850,7 @@
                 <span style="font-size:11px; font-weight:700; color:#C62828;">즉시 반영 필요 — 핵심 UX</span>
               </div>
               <div style="font-size:10px; color:#B71C1C; line-height:1.6;">
-                <b>[팀장 확정]</b> 건물 선택 BS 현위치 자동 팝업 / 카테고리 없음 → 기타문의 연결 / 상세요청탭 삭제 / 사진 최대 3장 / 접수확인 "수정할게요" 버튼 / 접수완료 "조속히 처리하겠습니다" 문구 / 접수번호 미표시 / 만족도 평가 BS 신규 도입
+                건물 선택 BS 현위치 자동 팝업 / 카테고리 없음 → 기타문의 연결 / 상세요청탭 삭제 / 사진 최대 1장 / 접수확인 "수정할게요" 버튼 / 접수완료 "조속히 처리하겠습니다" 문구 / 접수번호 미표시 / 만족도 평가 BS 신규 도입
                 <br>층 드롭다운 Sequential 활성화 / 최근 건물 기본값 / 검색결과 없음 처리 / 카테고리 전체보기 위치 / 요청 타입 동적 분기 / 확인 버튼 Disabled 처리 / 취소 확인 다이얼로그 / 이미지 미리보기 / 홈 이동 CTA / 업무시간 조건부 노출 / 뒤로가기 스택초기화 / 뒤로가기 데이터 유지 / 네트워크 오류 처리 / 낮은 점수 사유 수집 / 알림 딥링크 연결
               </div>
             </div>
@@ -3787,15 +3733,24 @@
 
 
 <script>
+  function scaleSlides() {
+    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    var slideW = 1280;
+    var scale = Math.min(1, (vw - 40) / slideW);
+    document.querySelectorAll('.slide').forEach(function(el) {
+      el.style.transform = 'scale(' + scale + ')';
+      el.style.transformOrigin = 'top center';
+      el.style.marginBottom = scale < 1 ? ((scale - 1) * 720 + 64) + 'px' : '64px';
+    });
+  }
+  scaleSlides();
+  window.addEventListener('resize', scaleSlides);
+
   var slides = Array.from(document.querySelectorAll('.slide'));
   var currentIndex = 0;
 
   function updateScale() {
-    var slideWidth = 1280;
-    var slideHeight = 720;
-    var ratio = Math.min(window.innerWidth / slideWidth, window.innerHeight / slideHeight);
-    var scale = Math.min(1, ratio);
-    document.documentElement.style.setProperty('--page-scale', scale.toFixed(4));
+    scaleSlides();
   }
 
   function scrollToSlide(index) {
@@ -3858,10 +3813,9 @@
     updateCurrentIndex();
   }, { passive: true });
 
-  window.addEventListener('resize', updateScale);
-  window.addEventListener('fullscreenchange', updateScale);
+  window.addEventListener('fullscreenchange', scaleSlides);
   window.addEventListener('load', function() {
-    updateScale();
+    scaleSlides();
     updateCurrentIndex();
   });
 
