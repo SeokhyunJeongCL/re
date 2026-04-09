@@ -1262,6 +1262,11 @@
         <div class="nav-num">7</div>
         <div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div>
       </div>
+      <div class="nav-divider"></div>
+      <div class="nav-item">
+        <div class="nav-num">8</div>
+        <div class="nav-text"><span class="nav-id">UFMDS01895U</span><span class="nav-name" style="color:var(--green);">만족도 평가</span></div>
+      </div>
     </div>
     <div class="slide-main">
       <div class="screen-meta">
@@ -1359,6 +1364,11 @@
     <!-- Left Nav -->
     <div class="slide-nav">
       <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item">
+        <div class="nav-num">0</div>
+        <div class="nav-text"><span class="nav-id">UFMDS01800U</span><span class="nav-name">진입 (건물등록)</span></div>
+      </div>
+      <div class="nav-divider"></div>
       <div class="nav-item active">
         <div class="nav-num">1</div>
         <div class="nav-text">
@@ -1409,6 +1419,11 @@
           <span class="nav-id">UFMDS01890U</span>
           <span class="nav-name">접수 완료</span>
         </div>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-item">
+        <div class="nav-num">8</div>
+        <div class="nav-text"><span class="nav-id">UFMDS01895U</span><span class="nav-name" style="color:var(--green);">만족도 평가</span></div>
       </div>
     </div>
 
@@ -2657,15 +2672,15 @@
 
       <!-- Mockup Zone: AS-IS(실사용 캡처) + TO-BE wireframe -->
       <div class="mockup-zone" style="width:580px; gap:10px;">
-        <!-- AS-IS: 히스토리 상세 (처리완료 후 만족도 평가 버튼) -->
+        <!-- AS-IS: 히스토리 상세 (처리결과 상세) -->
         <div class="mockup-block">
-          <div class="mockup-label">현행 — 히스토리 상세 (처리완료)</div>
-          <img class="mockup-img" style="height:460px;" src="./불편신고/사용자화면/Image (2).jpg" alt="히스토리 상세 처리완료">
+          <div class="mockup-label">현행 — 히스토리 상세 (처리결과 상세)</div>
+          <img class="mockup-img" style="height:460px;" src="./불편신고/사용자화면/Image (2).jpg" alt="히스토리 상세 처리결과 상세">
         </div>
-        <!-- AS-IS: 만족도 평가 BS -->
+        <!-- AS-IS: 히스토리 상세 (만족도 평가 버튼 포함 화면) -->
         <div class="mockup-block">
-          <div class="mockup-label">현행 — 만족도 평가 Bottom Sheet</div>
-          <img class="mockup-img" style="height:460px;" src="./불편신고/사용자화면/Image (1).jpg" alt="만족도 평가 BS">
+          <div class="mockup-label">현행 — 히스토리 상세 (만족도 평가 버튼)</div>
+          <img class="mockup-img" style="height:460px;" src="./불편신고/사용자화면/Image (1).jpg" alt="히스토리 상세 — 처리결과 + 만족도 평가 버튼">
         </div>
         <!-- TO-BE wireframe -->
         <div class="mockup-block">
@@ -3726,14 +3741,45 @@
     updateCurrentIndex();
   });
 
-  document.querySelectorAll('.nav-item').forEach(function(item) {
+  // nav-item 클릭: 이벤트 위임 (동적 삽입 항목 포함 처리)
+  document.body.addEventListener('click', function(e) {
+    var item = e.target.closest('.nav-item');
+    if (!item) return;
     var navId = item.querySelector('.nav-id');
     if (!navId) return;
     var screenId = navId.textContent.trim();
-    item.addEventListener('click', function() {
-      var target = document.getElementById('slide-' + screenId);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    var target = document.getElementById('slide-' + screenId);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // 사용자 화면 nav에 누락된 0번(UFMDS01800U)·8번(UFMDS01895U) 동적 삽입
+  document.querySelectorAll('.slide-nav').forEach(function(nav) {
+    var label = nav.querySelector('.nav-section-label');
+    if (!label) return;
+    var lText = label.textContent.trim();
+    if (lText !== '화면 목록' && lText !== '사용자 화면') return;
+    var ids = Array.from(nav.querySelectorAll('.nav-id')).map(function(el) { return el.textContent.trim(); });
+
+    if (!ids.includes('UFMDS01800U')) {
+      var item0 = document.createElement('div');
+      item0.className = 'nav-item';
+      item0.innerHTML = '<div class="nav-num">0</div><div class="nav-text"><span class="nav-id">UFMDS01800U</span><span class="nav-name">진입 (건물등록)</span></div>';
+      var sep0 = document.createElement('div');
+      sep0.className = 'nav-divider';
+      var first = nav.querySelector('.nav-item');
+      nav.insertBefore(sep0, first);
+      nav.insertBefore(item0, sep0);
+    }
+
+    if (!ids.includes('UFMDS01895U')) {
+      var sep8 = document.createElement('div');
+      sep8.className = 'nav-divider';
+      nav.appendChild(sep8);
+      var item8 = document.createElement('div');
+      item8.className = 'nav-item';
+      item8.innerHTML = '<div class="nav-num">8</div><div class="nav-text"><span class="nav-id">UFMDS01895U</span><span class="nav-name" style="color:var(--green);">만족도 평가</span></div>';
+      nav.appendChild(item8);
+    }
   });
 </script>
 </body>
