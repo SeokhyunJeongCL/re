@@ -864,6 +864,52 @@
     padding-left: 10px;
   }
 
+  /* ══════════════════════════════════════
+     관리자 화면 원문자 배지 오버레이
+  ══════════════════════════════════════ */
+  .img-wrap {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .adm-badge {
+    position: absolute;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    right: 6px;
+    z-index: 5;
+    line-height: 1;
+  }
+  /* 보조 이미지 (spec-zone 내 소형) */
+  .spec-sub-img {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 10px;
+    padding: 8px 10px;
+    background: var(--gray-bg);
+    border-radius: 8px;
+    border-left: 3px solid var(--blue);
+  }
+  .spec-sub-img img {
+    height: 180px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-lt);
+    flex-shrink: 0;
+  }
+  .spec-sub-img-desc {
+    font-size: 10px;
+    color: var(--gray-dk);
+    line-height: 1.55;
+    padding-top: 4px;
+  }
+
   /* Print */
   @media print {
     body { background: #fff; }
@@ -3042,12 +3088,21 @@
       </div>
       <div class="mockup-zone" style="width:510px;">
         <div class="mockup-block">
-          <div class="mockup-label">Image (64).jpg — 접수 상태 (목록)</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (64).jpg" alt="ADMDS01010A 접수 상태" style="height:450px;">
+          <div class="mockup-label">① ② ③ ④ — 접수 상태 (목록)</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (64).jpg" alt="ADMDS01010A 접수 상태" style="height:450px;">
+            <div class="adm-badge" style="top:5%;">①</div>
+            <div class="adm-badge" style="top:18%;">②</div>
+            <div class="adm-badge" style="top:28%;">③</div>
+            <div class="adm-badge" style="top:40%;">④</div>
+          </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">Image (3).jpg — 처리완료 상태 (목록)</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (3).jpg" alt="ADMDS01010A 처리완료 상태" style="height:450px;">
+          <div class="mockup-label tobe">⑤ — 처리완료 상태 (목록 아이템)</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (3).jpg" alt="ADMDS01010A 처리완료 상태" style="height:450px;">
+            <div class="adm-badge" style="top:50%;">⑤</div>
+          </div>
         </div>
       </div>
       <div class="spec-zone">
@@ -3116,12 +3171,19 @@
       </div>
       <div class="mockup-zone" style="width:510px;">
         <div class="mockup-block">
-          <div class="mockup-label">Image (63).jpg — 위험신고 · 요청 상태 상단</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (63).jpg" alt="ADMDS01020A 요청 상태" style="height:450px;">
+          <div class="mockup-label">① — 상단: 유형·상태·신청자 영역</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (63).jpg" alt="ADMDS01020A 요청 상태" style="height:450px;">
+            <div class="adm-badge" style="top:8%;">①</div>
+          </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">Image (62).jpg — 접수내용 전체 + 접수확인 버튼</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (62).jpg" alt="ADMDS01020A 접수내용" style="height:450px;">
+          <div class="mockup-label tobe">② ③ — 접수내용 + 접수확인 버튼</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (62).jpg" alt="ADMDS01020A 접수내용" style="height:450px;">
+            <div class="adm-badge" style="top:25%;">②</div>
+            <div class="adm-badge" style="bottom:5%;">③</div>
+          </div>
         </div>
       </div>
       <div class="spec-zone">
@@ -3187,12 +3249,20 @@
       </div>
       <div class="mockup-zone" style="width:510px;">
         <div class="mockup-block">
-          <div class="mockup-label">Image (61).jpg — "접수확인 처리하시겠어요?" 팝업</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (61).jpg" alt="ADMDS01030A 확인팝업" style="height:450px;">
+          <div class="mockup-label">① — 접수확인 팝업 (취소/확인)</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (61).jpg" alt="ADMDS01030A 확인팝업" style="height:450px;">
+            <div class="adm-badge" style="top:38%;">①</div>
+          </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">Image (60).jpg — 접수확인 완료 + Push 알림 + 처리 버튼</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (60).jpg" alt="ADMDS01030A 완료" style="height:450px;">
+          <div class="mockup-label tobe">② ③ ④ — Push 알림 + 처리 버튼</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (60).jpg" alt="ADMDS01030A 완료" style="height:450px;">
+            <div class="adm-badge" style="top:8%;">②</div>
+            <div class="adm-badge" style="bottom:13%;">③</div>
+            <div class="adm-badge" style="bottom:4%;">④</div>
+          </div>
         </div>
       </div>
       <div class="spec-zone">
@@ -3255,16 +3325,26 @@
       </div>
       <div class="mockup-zone" style="width:530px;">
         <div class="mockup-block">
-          <div class="mockup-label">Image (58).jpg — 작업내역 입력 (작업자·투입자재)</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (58).jpg" alt="ADMDS01040A 작업내역" style="height:430px;">
+          <div class="mockup-label">① ② — 작업자·투입자재 입력</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (58).jpg" alt="ADMDS01040A 작업내역" style="height:430px;">
+            <div class="adm-badge" style="top:12%;">①</div>
+            <div class="adm-badge" style="top:28%;">②</div>
+          </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">Image (57).jpg — 작업전/후 사진 + 피드백 선택</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (57).jpg" alt="ADMDS01040A 사진+피드백" style="height:430px;">
+          <div class="mockup-label tobe">③ — 작업전/후 사진 + 피드백 선택</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (57).jpg" alt="ADMDS01040A 사진+피드백" style="height:430px;">
+            <div class="adm-badge" style="top:15%;">③</div>
+          </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label">Image (59).jpg — "피드백을 입력해주세요" 팝업</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (59).jpg" alt="ADMDS01040A 피드백팝업" style="height:430px;">
+          <div class="mockup-label">④ — 피드백 미선택 시 팝업</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (59).jpg" alt="ADMDS01040A 피드백팝업" style="height:430px;">
+            <div class="adm-badge" style="top:38%;">④</div>
+          </div>
         </div>
       </div>
       <div class="spec-zone">
@@ -3331,12 +3411,21 @@
       </div>
       <div class="mockup-zone" style="width:530px;">
         <div class="mockup-block">
-          <div class="mockup-label">Image (51).jpg — 작업 전 사진 추가 바텀시트</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (51).jpg" alt="ADMDS01050A 작업전 사진" style="height:450px;">
+          <div class="mockup-label">① ② ③ ④ — 작업 전 사진 바텀시트</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (51).jpg" alt="ADMDS01050A 작업전 사진" style="height:450px;">
+            <div class="adm-badge" style="top:8%;">①</div>
+            <div class="adm-badge" style="top:32%;">②</div>
+            <div class="adm-badge" style="top:52%;">③</div>
+            <div class="adm-badge" style="bottom:8%;">④</div>
+          </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">Image (50).jpg — 작업 후 사진 추가 바텀시트</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (50).jpg" alt="ADMDS01050A 작업후 사진" style="height:450px;">
+          <div class="mockup-label tobe">타이틀만 다름 — 작업 후 사진 바텀시트</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (50).jpg" alt="ADMDS01050A 작업후 사진" style="height:450px;">
+            <div class="adm-badge" style="top:8%;" title="①과 동일 — 타이틀만 상이">①</div>
+          </div>
         </div>
       </div>
       <div class="spec-zone">
@@ -3394,20 +3483,24 @@
         <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">ADMDS01060A</div></div>
         <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">피드백 입력</div></div>
         <div class="meta-row"><div class="meta-label">진입 경로</div><div class="meta-value" style="font-size:10px;">처리예정(A4) 후<br>또는 처리완료<br>바로 선택 시</div></div>
-        <div class="meta-row"><div class="meta-label">참고 이미지</div><div style="font-size:9px; color:var(--gray-md); margin-top:3px; font-family:monospace; line-height:1.6;">Image (55).jpg<br>(피드백 목록)<br>Image (56).jpg<br>(처리 버튼)<br>Image (44).jpg<br>(수정 확인 팝업)</div></div>
+        <div class="meta-row"><div class="meta-label">참고 이미지</div><div style="font-size:9px; color:var(--gray-md); margin-top:3px; font-family:monospace; line-height:1.6;">Image (55).jpg<br>①② 피드백 목록<br>Image (56).jpg<br>④⑤ 처리 버튼<br>Image (44).jpg<br>③ 수정팝업(spec↓)</div></div>
       </div>
-      <div class="mockup-zone" style="width:530px;">
+      <div class="mockup-zone" style="width:370px;">
         <div class="mockup-block">
-          <div class="mockup-label">Image (55).jpg — 피드백 선택 목록 + 직접 작성</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (55).jpg" alt="ADMDS01060A 피드백 목록" style="height:430px;">
+          <div class="mockup-label">① ② — 피드백 목록 + 직접 작성</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (55).jpg" alt="ADMDS01060A 피드백 목록" style="height:430px;">
+            <div class="adm-badge" style="top:22%;">①</div>
+            <div class="adm-badge" style="top:78%;">②</div>
+          </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">Image (56).jpg — 피드백 + 처리예정/처리완료 버튼</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (56).jpg" alt="ADMDS01060A 처리버튼" style="height:430px;">
-        </div>
-        <div class="mockup-block">
-          <div class="mockup-label">Image (44).jpg — 수정 확인 팝업</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (44).jpg" alt="ADMDS01060A 수정팝업" style="height:430px;">
+          <div class="mockup-label tobe">④ ⑤ — 처리예정 / 처리완료 버튼</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (56).jpg" alt="ADMDS01060A 처리버튼" style="height:430px;">
+            <div class="adm-badge" style="bottom:13%;">④</div>
+            <div class="adm-badge" style="bottom:4%;">⑤</div>
+          </div>
         </div>
       </div>
       <div class="spec-zone">
@@ -3430,6 +3523,19 @@
             <tr><td>5</td><td class="item-name">처리 완료 버튼</td><td class="tobe">피드백 선택 완료 후 [처리 완료] 탭 → ADMDS01070A로 이동 + 사용자에게 처리완료 Push 알림 발송</td><td>최종 처리 확정</td></tr>
           </tbody>
         </table>
+        <!-- ③ 수정 확인 팝업 — 보조 이미지 (별도 상태이므로 분리 표시) -->
+        <div class="spec-sub-img">
+          <div class="img-wrap">
+            <img src="불편신고/관리자화면/Image (44).jpg" alt="ADMDS01060A 수정팝업">
+            <div class="adm-badge" style="top:35%;">③</div>
+          </div>
+          <div class="spec-sub-img-desc">
+            <b style="color:var(--blue);">③ 수정 확인 팝업</b><br>
+            이미 피드백을 선택·입력한 상태에서 다른 항목을 탭하면 "내용을 수정하시겠어요?" 팝업이 노출됩니다.<br><br>
+            <b>[취소]</b>: 기존 선택 유지<br>
+            <b>[확인]</b>: 기존 내용 초기화 후 새 항목 선택
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -3466,23 +3572,26 @@
         <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">ADMDS01070A</div></div>
         <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">처리완료<br>확인 및 수정</div></div>
         <div class="meta-row"><div class="meta-label">상태</div><div class="meta-value" style="color:var(--green); font-weight:700;">처리완료</div></div>
-        <div class="meta-row"><div class="meta-label">참고 이미지</div><div style="font-size:9px; color:var(--gray-md); margin-top:3px; font-family:monospace; line-height:1.6;">Image (43).jpg<br>(처리완료+수정)<br>Image (46).jpg<br>(수정 상태)<br>Image (48).jpg<br>(Push 알림)</div></div>
+        <div class="meta-row"><div class="meta-label">참고 이미지</div><div style="font-size:9px; color:var(--gray-md); margin-top:3px; font-family:monospace; line-height:1.6;">Image (43).jpg<br>①② 처리완료+수정<br>Image (46).jpg<br>② 수정 후 상태<br>Image (48).jpg<br>③④ Push·딥링크(spec↓)</div></div>
         <div style="margin-top:6px; background:#E8F5E9; border-radius:5px; padding:6px 8px; font-size:9px; color:#1B5E20; border-left:2px solid var(--green);">
           처리완료 시<br>사용자에게<br>Push 알림 발송<br>→ 만족도평가<br>BS 자동 진입
         </div>
       </div>
-      <div class="mockup-zone" style="width:530px;">
+      <div class="mockup-zone" style="width:370px;">
         <div class="mockup-block">
-          <div class="mockup-label">Image (43).jpg — 처리완료 상세 (수정 버튼)</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (43).jpg" alt="ADMDS01070A 처리완료" style="height:430px;">
+          <div class="mockup-label">① ② — 처리완료 상세 + 수정 버튼</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (43).jpg" alt="ADMDS01070A 처리완료" style="height:430px;">
+            <div class="adm-badge" style="top:10%;">①</div>
+            <div class="adm-badge" style="bottom:5%;">②</div>
+          </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label tobe">Image (46).jpg — 처리완료 수정 화면</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (46).jpg" alt="ADMDS01070A 수정" style="height:430px;">
-        </div>
-        <div class="mockup-block">
-          <div class="mockup-label">Image (48).jpg — 처리완료 Push 알림 노출</div>
-          <img class="mockup-img" src="불편신고/관리자화면/Image (48).jpg" alt="ADMDS01070A Push알림" style="height:430px;">
+          <div class="mockup-label tobe">② — 수정 후 편집 가능 상태</div>
+          <div class="img-wrap">
+            <img class="mockup-img" src="불편신고/관리자화면/Image (46).jpg" alt="ADMDS01070A 수정" style="height:430px;">
+            <div class="adm-badge" style="top:10%;">②</div>
+          </div>
         </div>
       </div>
       <div class="spec-zone">
@@ -3506,6 +3615,21 @@
             <tr><td>5</td><td class="item-name">참고 이미지 추가</td><td class="tobe">Image (47).jpg, Image (49).jpg: Image (46), (48)과 동일 화면의 반복 촬영본 — 별도 디자인 없음</td><td>중복 촬영본</td></tr>
           </tbody>
         </table>
+        <!-- ③ ④ Push 알림 — 보조 이미지 -->
+        <div class="spec-sub-img">
+          <div class="img-wrap">
+            <img src="불편신고/관리자화면/Image (48).jpg" alt="ADMDS01070A Push알림">
+            <div class="adm-badge" style="top:8%;">③</div>
+            <div class="adm-badge" style="top:30%;">④</div>
+          </div>
+          <div class="spec-sub-img-desc">
+            <b style="color:var(--blue);">③ 처리완료 Push 알림 자동 발송</b><br>
+            처리완료 시 사용자 앱으로 Push 알림 자동 발송.<br>
+            알림 문구: "불편신고 작업이 완료되었어요. 작업 결과를 확인하고 서비스 만족도를 알려주세요"<br><br>
+            <b style="color:var(--green);">④ 만족도 평가 딥링크 연결</b><br>
+            사용자가 Push 알림 탭 → 히스토리 상세 진입 → UFMDS01895U 만족도 평가 BS 자동 오픈
+          </div>
+        </div>
       </div>
     </div>
   </div>
