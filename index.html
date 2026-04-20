@@ -2154,6 +2154,131 @@
 
 
 <!-- ══════════════════════════════════════
+     SLIDE 7-1: UFMDS01835U 서비스 검색 (사용자 검색시 화면 V4.1)
+══════════════════════════════════════ -->
+<div class="slide" id="slide-UFMDS01835U">
+  <div class="slide-header">
+    <div class="breadcrumb">
+      <span>불편신고</span><span class="sep">›</span>
+      <b>UFMDS01835U</b><span class="sep">›</span>
+      <span>서비스 검색</span>
+    </div>
+    <div class="slide-id">SD2026-002</div>
+  </div>
+  <div class="slide-body">
+    <div class="slide-nav">
+      <div class="nav-section-label">화면 목록</div>
+      <div class="nav-item"><div class="nav-num">1</div><div class="nav-text"><span class="nav-id">UFMDS01810U</span><span class="nav-name">장소 선택</span></div></div>
+      <div class="nav-item"><div class="nav-num">2</div><div class="nav-text"><span class="nav-id">UFMDS01820U</span><span class="nav-name">건물 선택 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">3</div><div class="nav-text"><span class="nav-id">UFMDS01830U</span><span class="nav-name">카테고리 선택</span></div></div>
+      <div class="nav-item active"><div class="nav-num">3-1</div><div class="nav-text"><span class="nav-id">UFMDS01835U</span><span class="nav-name">서비스 검색</span></div></div>
+      <div class="nav-item"><div class="nav-num">4</div><div class="nav-text"><span class="nav-id">UFMDS01840U</span><span class="nav-name">상세 정보 입력</span></div></div>
+      <div class="nav-item"><div class="nav-num">5</div><div class="nav-text"><span class="nav-id">UFMDS01850U</span><span class="nav-name">이미지 첨부 BS</span></div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-item"><div class="nav-num">6</div><div class="nav-text"><span class="nav-id">UFMDS01880U</span><span class="nav-name">접수 확인</span></div></div>
+      <div class="nav-item"><div class="nav-num">7</div><div class="nav-text"><span class="nav-id">UFMDS01890U</span><span class="nav-name">접수 완료</span></div></div>
+    </div>
+
+    <div class="slide-main">
+      <div class="screen-meta">
+        <div class="meta-row"><div class="meta-label">화면 ID</div><div class="meta-value code">UFMDS01835U</div></div>
+        <div class="meta-row"><div class="meta-label">화면명</div><div class="meta-value">서비스 검색</div></div>
+        <div class="meta-row"><div class="meta-label">유형</div><div class="meta-value"><span class="meta-tag tag-full">Full Screen</span></div></div>
+        <div class="meta-row"><div class="meta-label">단계</div><div class="meta-value"><span class="meta-tag tag-step">Step 1 / 3</span></div></div>
+        <div class="step-bar">
+          <div class="meta-label">진행률</div>
+          <div class="step-bar-track"><div class="step-bar-fill" style="width:33%"></div></div>
+          <div class="step-labels"><span style="color:var(--brand); font-weight:700;">접수하기</span><span>카테고리</span><span>정보입력</span></div>
+        </div>
+        <div class="meta-row"><div class="meta-label">개선 항목</div><div class="meta-value" style="color:var(--brand);">4건</div></div>
+      </div>
+
+      <div class="mockup-zone" style="width:400px; gap:10px;">
+        <div class="mockup-block">
+          <div class="mockup-label">S1 — 검색 결과 없을 시</div>
+          <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/UFMDS01835U-S01.jpg" alt="서비스 검색 - 결과 없음">
+        </div>
+        <div class="mockup-block">
+          <div class="mockup-label tobe">S2 — 검색 결과 있을 시</div>
+          <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/UFMDS01835U-S02.jpg" alt="서비스 검색 - 결과 있음">
+        </div>
+      </div>
+
+      <div class="spec-zone">
+        <div class="spec-screen-title">UFMDS01835U — 서비스 검색 명세 (V4.1)</div>
+        <table class="spec-table">
+          <thead>
+            <tr><th style="width:22px;">#</th><th style="width:110px;">항목</th><th>명세</th><th style="width:56px;">화면</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="item-name">서비스 검색창</td>
+              <td>텍스트 검색창 + 우측 검색 버튼. <b>Like 검색</b>으로 일부 키워드로 검색 가능</td>
+              <td>S1/S2</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="item-name">검색 서비스 노출</td>
+              <td>
+                • 기본: <b>기타문의</b> 항상 노출 → 탭 시 카테고리 '기타'로 이동<br>
+                • <span style="color:var(--brand); font-weight:600;">기존 '최근 이용한 서비스' → '추천 서비스'로 변경</span><br>
+                • <span style="color:var(--red); font-weight:600;">기존 '추천 서비스(찾는 키워드가 없나요?)' 패널 삭제</span> ※기타문의/FAQ 버튼 포함<br>
+                • 검색결과 없을 시: <b>기타문의</b> 노출
+              </td>
+              <td>S1/S2</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="item-name">결과 화면</td>
+              <td>
+                <b>결과 없을 시 (S1)</b>: "검색된 키워드가 없어요" 노출<br>
+                <b>결과 있을 시 (S2)</b>: 매칭 서비스 목록만 노출, 기타 섹션 숨김
+              </td>
+              <td>S1/S2</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="item-name">카테고리 버튼</td>
+              <td>하단 <b>카테고리 전체 보기</b> 버튼 항상 노출 → 탭 시 바텀시트로 전체 카테고리 노출 (UFMDS01830U-all)</td>
+              <td>S1/S2</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="item-name">진행 표시 bar</td>
+              <td>3단계: <b>① 접수하기 진입</b>(현재) → ② 카테고리 선택 → ③ 정보입력 화면. Step 1 활성(33%)</td>
+              <td>S1/S2</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="item-name">뒤로가기</td>
+              <td>← 탭 시 <b>홈으로 이동</b></td>
+              <td>S1/S2</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:6px;">
+          <div style="background:#FDECF5; border-radius:6px; padding:7px 10px; border-left:2px solid var(--brand);">
+            <div style="font-size:9.5px; font-weight:700; color:var(--brand); margin-bottom:3px;">변경 핵심 (V4.1)</div>
+            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">• '최근 이용한 서비스' → '추천 서비스' 레이블 변경<br>• 하단 '찾는 키워드가 없나요?' 패널 삭제<br>• 검색 결과 없을 시 기타문의 단독 노출</div>
+          </div>
+          <div style="background:#EEF2FA; border-radius:6px; padding:7px 10px; border-left:2px solid var(--blue);">
+            <div style="font-size:9.5px; font-weight:700; color:var(--blue); margin-bottom:3px;">AC (수락 기준)</div>
+            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">• Like 검색으로 일부 키워드 입력 시 매칭 서비스 노출<br>• 결과 없을 시 '검색된 키워드가 없어요' + 기타문의 노출<br>• 카테고리 전체 보기 → 바텀시트 정상 동작</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-crumb">불편신고 <span class="sep">›</span> <b>UFMDS01835U</b> <span class="sep">›</span> 서비스 검색</div>
+    <div class="footer-right">SD2026-002 · P.7-1</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
      SLIDE 8: UFMDS01840U 상세 정보 입력
 ══════════════════════════════════════ -->
 <div class="slide" id="slide-UFMDS01840U">
