@@ -4,7 +4,9 @@
       "Bash(python3 -c ' *)",
       "Bash(python -c ' *)",
       "Bash(cp \"d:/04.vscode/화면정의서/불편신고/pptx_extract/image2.jpeg\" \"d:/04.vscode/화면정의서/불편신고/불편신고/사용자화면/UFMDS01835U-S01.jpg\")",
-      "Bash(cp \"d:/04.vscode/화면정의서/불편신고/pptx_extract/image4.jpg\" \"d:/04.vscode/화면정의서/불편신고/불편신고/사용자화면/UFMDS01835U-S02.jpg\")"
+      "Bash(cp \"d:/04.vscode/화면정의서/불편신고/pptx_extract/image4.jpg\" \"d:/04.vscode/화면정의서/불편신고/불편신고/사용자화면/UFMDS01835U-S02.jpg\")",
+      "Bash(dir \"D:\\\\04.vscode\\\\화면정의서\\\\불편신고\\\\사용자화면\\\\Image_*\")",
+      "Read(//c/Users/Administrator/AppData/Local/Temp/**)"
     ]
   }
 }
