@@ -1793,18 +1793,18 @@
           <div class="mockup-label">S1 — 현위치 확인 팝업</div>
           <div class="img-wrap">
             <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/Image_(37).jpg" alt="UFMDS01815U S1 현위치 확인 팝업">
-            <div class="adm-badge" style="top:38%;">①</div>
-            <div class="adm-badge" style="top:46%; right:auto; left:6px;">②</div>
-            <div class="adm-badge" style="top:46%;">③</div>
+            <div class="adm-badge" style="top:30%;">①</div>
+            
+            <div class="adm-badge" style="top:60%;">③</div>
           </div>
         </div>
         <div class="mockup-block">
           <div class="mockup-label tobe">S2 — 건물 선택 BS</div>
           <div class="img-wrap">
             <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/Image_(36).jpg" alt="UFMDS01815U S2 건물 선택 BS">
-            <div class="adm-badge" style="top:65%;">①</div>
+            
             <div class="adm-badge" style="top:73%;">②</div>
-            <div class="adm-badge" style="top:88%;">③</div>
+            
           </div>
         </div>
       </div>
@@ -1825,36 +1825,36 @@
               <td>2</td>
               <td class="item-name">BS 내 건물 검색</td>
               <td>
-                • <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">①</b>"건물명 또는 장소를 입력해주세요" 검색창 + 🔍. <b>Like 검색</b> 지원<br>
-                • <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">②</b><span style="color:var(--brand); font-weight:600;">현위치로 근처 건물 보기</span>: 위치 권한 허용 시 반경 1km 내 건물 자동 로드<br>
-                • <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">③</b>하단 <b>확인</b> 버튼: 건물 선택 완료 후 활성
+                • "건물명 또는 장소를 입력해주세요" 검색창 + 🔍. <b>Like 검색</b> 지원<br>
+                • 현위치로 근처 건물 보기</b>: 위치 권한 허용 시 반경 1km 내 건물 자동 로드(주변건물 없을시 '주변에 건물이 없습니다' 노출<br>
+                • 하단 <b>확인</b> 버튼: 건물 선택 완료 후 활성
               </td>
               <td>S2</td>
             </tr>
             <tr>
               <td>3</td>
-              <td class="item-name">현위치 확인 팝업</td>
+              <td class="item-name">팝업 버튼</td>
               <td>
-                <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">①</b>등록 건물과 현위치 불일치 시 자동 노출: <b>"현재 근무 중인 건물이 맞는지 확인해 주세요!"</b><br>
-                • <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">②</b><b>네! 맞아요</b>: 현 건물 유지 → 다음 단계<br>
-                • <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">③</b><b>아니에요</b>: 건물 선택 BS 재진입 (변경 허용)
+                • 사용자가 건물로부터 1km 이상 떨어져 있을 시 팝업 노출<br>
+                • <b>네 맞아요</b> → 층 선택 후 확인 -> 접수하기로 이동(UFMDS01830U)<br>
+                • <b>아니에요</b> → 건물 선택 바텀시트 노출(UFMDS01810U 화면 이동)
               </td>
               <td>S1</td>
             </tr>
             <tr>
-              <td>4</td>
+              <td>#</td>
               <td class="item-name">층 선택 드롭다운</td>
-              <td>건물 선택 완료 후 활성화. 등록 층 없을 시 <b>"건물에 등록된 층이 없습니다"</b> 표시 + 비활성 유지</td>
+              <td>건물 선택 완료 후 활성화. 등록 층 없을 시 <b>"건물에 등록된 층이 없습니다"</b> 표시</td>
               <td>S3</td>
             </tr>
             <tr>
-              <td>5</td>
+              <td>#</td>
               <td class="item-name">확인 버튼</td>
               <td>건물 + 층 선택 완료 시에만 활성. 탭 시 UFMDS01830U로 이동. 미완료 시 비활성(회색)</td>
               <td>S3</td>
             </tr>
             <tr>
-              <td>6</td>
+              <td>#</td>
               <td class="item-name">뒤로가기</td>
               <td>← 탭 시 홈으로 이동</td>
               <td>S1/S2/S3</td>
@@ -2380,25 +2380,25 @@
 
       <div class="mockup-zone" style="width:400px; gap:10px;">
         <div class="mockup-block">
-          <div class="mockup-label">S1 — 검색 결과 없을 시 (AS-IS)</div>
+          <div class="mockup-label tobe">S1 — 검색 결과 없을 시 (TO-BE)</div>
           <div class="img-wrap">
-            <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/Image_(32).jpg" alt="서비스 검색 - 결과 없음 AS-IS">
-            <div class="adm-badge" style="top:27%;">①</div>
-            <div class="adm-badge" style="top:35%;">②</div>
-            <div class="adm-badge" style="top:43%;">③</div>
-            <div class="adm-badge" style="top:75%;">④</div>
-            <div class="adm-badge" style="top:87%;">⑤</div>
+            <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/UFMDS01835U-S01.png" alt="서비스 검색 - 결과 없음 TO-BE">
+            <div class="adm-badge" style="top:32%;">①</div>
+            <div class="adm-badge" style="top:40%;">②</div>
+            <div class="adm-badge" style="top:68%;">③</div>
+            <div class="adm-badge" style="top:89%;">④</div>
+            <div class="adm-badge" style="top:10%;">⑤</div>
           </div>
         </div>
         <div class="mockup-block">
-          <div class="mockup-label">S2 — 검색 결과 있을 시 (AS-IS)</div>
+          <div class="mockup-label tobe">S2 — 검색 결과 있을 시 (TO-BE)</div>
           <div class="img-wrap">
-            <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/Image_(34).jpg" alt="서비스 검색 - 결과 있음 AS-IS">
-            <div class="adm-badge" style="top:13%;">①</div>
-            <div class="adm-badge" style="top:20%;">②</div>
-            <div class="adm-badge" style="top:30%;">③</div>
-            <div class="adm-badge" style="top:34%;">④</div>
-            <div class="adm-badge" style="top:85%;">⑤</div>
+            <img class="mockup-img" style="height:390px;" src="불편신고/사용자화면/UFMDS01835U-S02.png" alt="서비스 검색 - 결과 있음 TO-BE">
+            
+            
+            <div class="adm-badge" style="top:47%;">③</div>
+            
+            
           </div>
         </div>
       </div>
@@ -2413,18 +2413,17 @@
             <tr>
               <td>1</td>
               <td class="item-name">서비스 검색창</td>
-              <td><b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">①</b>텍스트 검색창 + 우측 검색 버튼. <b>Like 검색</b>으로 일부 키워드로 검색 가능</td>
+              <td>
               <td>S1/S2</td>
             </tr>
             <tr>
               <td>2</td>
               <td class="item-name">검색 서비스 노출</td>
               <td>
-                • 기본: <b>기타문의</b> 항상 노출 → 탭 시 카테고리 '기타'로 이동<br>
-                • <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">②</b><span style="color:var(--brand); font-weight:600;">기존 '최근 이용한 서비스' → '추천 서비스'로 변경</span><br>
-                • <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">③</b>'추천 서비스' 섹션 (기존 유지, 내용 변경 없음)<br>
-                • <b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">④</b><span style="color:var(--red); font-weight:600;">'찾는 키워드가 없나요?' 패널 삭제</span> ※기타문의/FAQ 버튼 포함<br>
-                • 검색결과 없을 시: <b>기타문의</b> 노출
+                • <span style="color:var(--brand); font-weight:600;">기존 '최근 이용한 서비스' → '추천 서비스'로 변경</span><br>
+                
+                
+                • 추천 서비스에 기타문의는 항상 노출. 하단 '찾는 키워드가 없나요?' 패널(기타 문의/FAQ 카드) <b>삭제(S3참고)</b>
               </td>
               <td>S1/S2</td>
             </tr>
@@ -2433,48 +2432,48 @@
               <td class="item-name">결과 화면</td>
               <td>
                 <b>결과 없을 시 (S1)</b>: "검색된 키워드가 없어요" 노출<br>
-                <b>결과 있을 시 (S2)</b>: 매칭 서비스 목록만 노출, 기타 섹션 숨김
+                <b>결과 있을 시 (S2)</b>: 매칭 서비스 목록만 추천서비스에 노출, 기타 섹션 숨김
               </td>
               <td>S1/S2</td>
             </tr>
             <tr>
               <td>4</td>
               <td class="item-name">카테고리 버튼</td>
-              <td><b style="display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;margin-right:2px;vertical-align:middle;">⑤</b>하단 <b>카테고리 전체 보기</b> 버튼 항상 노출 → 탭 시 바텀시트로 전체 카테고리 노출 (UFMDS01830U-all)</td>
+              <td>하단 <b>카테고리 전체 보기</b> 버튼 항상 노출 → 탭 시 바텀시트로 전체 카테고리 노출 (UFMDS01830U-all)</td>
               <td>S1/S2</td>
             </tr>
             <tr>
               <td>5</td>
-              <td class="item-name">진행 표시 bar</td>
-              <td>3단계: <b>① 접수하기 진입</b>(현재) → ② 카테고리 선택 → ③ 정보입력 화면. Step 1 활성(33%)</td>
+              <td class="item-name">진행 bar</td>
+              <td>단계표시 3단계 <b>(모든 단계는 원형으로 표현)</b> ※ <b>① 접수하기 진입</b> → ② 카테고리 선택 → ③ 정보입력 화면</td>
               <td>S1/S2</td>
             </tr>
             <tr>
-              <td>6</td>
+              <td>#</td>
               <td class="item-name">뒤로가기</td>
               <td>← 탭 시 <b>홈으로 이동</b></td>
               <td>S1/S2</td>
             </tr>
+            
           </tbody>
         </table>
         <div class="spec-sub-img">
           <div class="img-wrap">
-            <img src="불편신고/사용자화면/Image_(33).jpg" alt="서비스 검색 - 찾는 키워드가 없나요 패널 AS-IS">
+            <img src="불편신고/사용자화면/UFMDS01835U-S03.jpg" alt="서비스 검색 - 찾는 키워드가 없나요 패널 TO-BE">
           </div>
           <div class="spec-sub-img-desc">
-            <b style="color:var(--blue);">S3 — '찾는 키워드가 없나요?' 패널 (AS-IS)</b><br>
-            검색 결과 없을 시 하단에 노출되는 다크 패널. '기타 문의' / 'FAQ' 버튼 포함.<br><br>
-            <span style="color:var(--red); font-weight:600;">V4.2 TO-BE: 해당 패널 전체 삭제</span><br>기타문의는 검색 결과 목록 내 단독 항목으로 대체
+            
+            <span style="color:var(--brand); font-weight:600;">TO-BE: 기존 추천서비스 패널 삭제</span>
           </div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:6px;">
           <div style="background:#FDECF5; border-radius:6px; padding:7px 10px; border-left:2px solid var(--brand);">
             <div style="font-size:9.5px; font-weight:700; color:var(--brand); margin-bottom:3px;">변경 핵심 (V4.2)</div>
-            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">• '최근 이용한 서비스' → '추천 서비스' 레이블 변경<br>• 하단 '찾는 키워드가 없나요?' 패널 전체 삭제 (기타문의/FAQ 포함)<br>• 기타문의: 목록 상단 단독 항목으로 상시 노출<br>• 검색 결과 없을 시 기타문의 단독 노출</div>
+            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">• '최근 이용한 서비스' → '추천 서비스' 레이블 변경<br>• 하단 '찾는 키워드가 없나요?' 패널 삭제 (기타 문의/FAQ 카드)<br>• 검색 결과 없을 시 '검색된 키워드가 없어요' 노출 유지</div>
           </div>
           <div style="background:#EEF2FA; border-radius:6px; padding:7px 10px; border-left:2px solid var(--blue);">
             <div style="font-size:9.5px; font-weight:700; color:var(--blue); margin-bottom:3px;">AC (수락 기준)</div>
-            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">• Like 검색으로 일부 키워드 입력 시 매칭 서비스 노출<br>• 결과 없을 시 '검색된 키워드가 없어요' + 기타문의 노출<br>• '찾는 키워드가 없나요?' 다크 패널 미노출 확인<br>• 카테고리 전체 보기 → 바텀시트 정상 동작</div>
+            <div style="font-size:9px; color:var(--gray-dk); line-height:1.5;">• Like 검색으로 일부 키워드 입력 시 매칭 서비스 노출<br>• 결과 없을 시 '검색된 키워드가 없어요' 노출 확인<br>• 추천서비스 내 '기타문의' 버튼 미노출 확인<br>• 카테고리 전체 보기 → 바텀시트 정상 동작</div>
           </div>
         </div>
       </div>
